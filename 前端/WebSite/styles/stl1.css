@@ -1,0 +1,28 @@
+/* (h2).st1 只有(XX)標籤可以使用該樣式 */
+h2.st1{
+    color: green;
+    text-decoration: underline;
+}
+/* .st2 大家都能使用 */
+.st2{
+    color: rgb(226, 225, 135);
+    text-decoration:overline;
+}
+.col1{
+    color: gray;
+}
+.col2{
+    color: brown;
+}
+.size1{
+    font-size:  2em;
+}
+.trans{
+    text-transform:capitalize;
+}
+.under1{
+    text-decoration: underline;
+}
+#H1col{
+    color: pink;
+}
