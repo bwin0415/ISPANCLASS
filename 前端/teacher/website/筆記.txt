@@ -1,0 +1,8 @@
+block:佔一整列，前後元素會上下還行產生
+      <h1>...<h6>，<p>，<div>，<ul><ol><li><dl<dt><dd>
+
+inline:佔據位置為內容本身，內容越多佔據的位置跟著延伸
+     <span>，<a>，<img>
+
+block元素裡面考已放block及inline元素
+inline元素裡面只可以放inline元素
