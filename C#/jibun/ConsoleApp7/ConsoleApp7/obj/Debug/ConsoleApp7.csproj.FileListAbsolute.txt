@@ -1,0 +1,6 @@
+C:\Users\iii\Desktop\上課資料夾\C#\jibun\ConsoleApp7\ConsoleApp7\bin\Debug\ConsoleApp7.exe.config
+C:\Users\iii\Desktop\上課資料夾\C#\jibun\ConsoleApp7\ConsoleApp7\bin\Debug\ConsoleApp7.exe
+C:\Users\iii\Desktop\上課資料夾\C#\jibun\ConsoleApp7\ConsoleApp7\bin\Debug\ConsoleApp7.pdb
+C:\Users\iii\Desktop\上課資料夾\C#\jibun\ConsoleApp7\ConsoleApp7\obj\Debug\ConsoleApp7.csproj.CoreCompileInputs.cache
+C:\Users\iii\Desktop\上課資料夾\C#\jibun\ConsoleApp7\ConsoleApp7\obj\Debug\ConsoleApp7.exe
+C:\Users\iii\Desktop\上課資料夾\C#\jibun\ConsoleApp7\ConsoleApp7\obj\Debug\ConsoleApp7.pdb

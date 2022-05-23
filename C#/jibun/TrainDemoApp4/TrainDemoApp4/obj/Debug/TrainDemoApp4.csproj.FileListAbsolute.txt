@@ -1,0 +1,14 @@
+C:\Users\iii\Desktop\上課資料夾\C#\jibun\TrainDemoApp4\TrainDemoApp4\bin\Debug\TrainDemoApp4.exe.config
+C:\Users\iii\Desktop\上課資料夾\C#\jibun\TrainDemoApp4\TrainDemoApp4\bin\Debug\TrainDemoApp4.exe
+C:\Users\iii\Desktop\上課資料夾\C#\jibun\TrainDemoApp4\TrainDemoApp4\bin\Debug\TrainDemoApp4.pdb
+C:\Users\iii\Desktop\上課資料夾\C#\jibun\TrainDemoApp4\TrainDemoApp4\obj\Debug\TrainDemoApp4.csprojAssemblyReference.cache
+C:\Users\iii\Desktop\上課資料夾\C#\jibun\TrainDemoApp4\TrainDemoApp4\obj\Debug\TrainDemoApp4.csproj.CoreCompileInputs.cache
+C:\Users\iii\Desktop\上課資料夾\C#\jibun\TrainDemoApp4\TrainDemoApp4\obj\Debug\TrainDemoApp4.exe
+C:\Users\iii\Desktop\上課資料夾\C#\jibun\TrainDemoApp4\TrainDemoApp4\obj\Debug\TrainDemoApp4.pdb
+C:\Users\iii\Desktop\A\C#\C#\jibun\TrainDemoApp4\TrainDemoApp4\bin\Debug\TrainDemoApp4.exe.config
+C:\Users\iii\Desktop\A\C#\C#\jibun\TrainDemoApp4\TrainDemoApp4\bin\Debug\TrainDemoApp4.exe
+C:\Users\iii\Desktop\A\C#\C#\jibun\TrainDemoApp4\TrainDemoApp4\bin\Debug\TrainDemoApp4.pdb
+C:\Users\iii\Desktop\A\C#\C#\jibun\TrainDemoApp4\TrainDemoApp4\obj\Debug\TrainDemoApp4.csprojAssemblyReference.cache
+C:\Users\iii\Desktop\A\C#\C#\jibun\TrainDemoApp4\TrainDemoApp4\obj\Debug\TrainDemoApp4.csproj.CoreCompileInputs.cache
+C:\Users\iii\Desktop\A\C#\C#\jibun\TrainDemoApp4\TrainDemoApp4\obj\Debug\TrainDemoApp4.exe
+C:\Users\iii\Desktop\A\C#\C#\jibun\TrainDemoApp4\TrainDemoApp4\obj\Debug\TrainDemoApp4.pdb

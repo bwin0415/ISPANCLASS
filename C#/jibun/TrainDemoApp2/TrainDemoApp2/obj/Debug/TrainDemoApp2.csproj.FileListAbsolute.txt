@@ -1,0 +1,7 @@
+C:\Users\iii\Desktop\C#\jibun\TrainDemoApp2\TrainDemoApp2\bin\Debug\TrainDemoApp2.exe.config
+C:\Users\iii\Desktop\C#\jibun\TrainDemoApp2\TrainDemoApp2\bin\Debug\TrainDemoApp2.exe
+C:\Users\iii\Desktop\C#\jibun\TrainDemoApp2\TrainDemoApp2\bin\Debug\TrainDemoApp2.pdb
+C:\Users\iii\Desktop\C#\jibun\TrainDemoApp2\TrainDemoApp2\obj\Debug\TrainDemoApp2.csproj.CoreCompileInputs.cache
+C:\Users\iii\Desktop\C#\jibun\TrainDemoApp2\TrainDemoApp2\obj\Debug\TrainDemoApp2.exe
+C:\Users\iii\Desktop\C#\jibun\TrainDemoApp2\TrainDemoApp2\obj\Debug\TrainDemoApp2.pdb
+C:\Users\iii\Desktop\C#\jibun\TrainDemoApp2\TrainDemoApp2\obj\Debug\TrainDemoApp2.csprojAssemblyReference.cache
