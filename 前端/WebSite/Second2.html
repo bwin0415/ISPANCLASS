@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="150">
+    <style>
+        /* (h2).st1 只有(XX)標籤可以使用該樣式 */
+        h2.st1{
+            color: green;
+            text-decoration: underline;
+        }
+        /* .st2 大家都能使用 */
+        .st2{
+            color: orange;
+            text-decoration:overline;
+        }
+        .col1{
+            color: gray;
+        }
+        .col2{
+            color: brown;
+        }
+        .size1{
+            font-size:  2em;
+        }
+        .trans{
+            text-transform:capitalize;
+        }
+        .under1{
+            text-decoration: underline;
+        }
+    </style>
+    <title>CSS樣式-自訂樣式(class)</title>
+</head>
+
+<body>
+    <!-- 因為非指定標籤只能使用預設值 -->
+    <h1 class="st1"> apple</h1> 
+    <h2 class="st2">orange</h2>
+    <h2 class="st1">banana</h2>
+    <h3 class="col1 size1 trans">panda</h3>
+    <h3 class="col2 size1 under1">mokey</h3>
+</body>
+
+</html>
