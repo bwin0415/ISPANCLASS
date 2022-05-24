@@ -6,7 +6,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="150">
-    <title>Document</title>
+    <title>超連結</title>
+    <style>
+        /*
+        .list>li>a:link {
+            color: aqua;
+            text-decoration: none;
+
+        }
+
+        
+        .list>li>a:visited {
+            color: bisque;
+
+        }
+
+         Class名稱+>+一直指定該標籤 只在那個Class裡的會有改變
+        .list>li>a:hover {
+            text-decoration: underline;
+            color: green;
+        }
+
+        .list>li>a:active {
+            color: red;
+            font-size: 30px;
+        }
+        */
+
+        /* 只能二選一 */
+
+        .list a:link {
+            color: aqua;
+            text-decoration: none;
+
+        }
+
+        /* Class名稱+空白+標籤 只在那個Class裡的會有改變 */
+        .list a:visited {
+            color: bisque;
+
+        }
+
+
+        .list a:hover {
+            text-decoration: underline;
+            color: green;
+        }
+
+        .list a:active {
+            color: red;
+            font-size: 30px;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,16 +67,22 @@
     <a href="#book1">book1</a>
     <!-- #book id名稱 -->
     <a href="mailto:v826415629@gmail.com">聯絡我</a>
+    <ul class="list">
+        <li><a href="https://google.com">首頁</a></li>
+        <li><a href="">新聞</a></li>
+        <li><a href="">汽車</a></li>
+        <li><a href="">娛樂</a></li>
+    </ul>
     <h1>Yahoo奇摩調查：35歲以下近5成體驗過NFT</h1>
     <figure style="background-color: cadetblue;">
         <img src="Image/202205181153013297.png" alt="蘋果" title="只是一顆蘋果" width="250">
-        <a href="https://apple.com"> 
+        <a href="https://apple.com">
             <img src="Image/202205181153013297.png" alt="蘋果" title="只是一顆蘋果" width="250">
         </a>
         <figcaption>幾列澎各</figcaption>
 
     </figure>
-    
+
     <p>
         〔記者張慧雯／台北報導〕Yahoo奇摩今（20）日發布最新「元宇宙世代白皮書」
         ，Yahoo國際消費者洞察暨數據分析總監蘇建勳表示，從調查中發現，以1987年前後出生為分水嶺，兩個世代對元宇宙想像大不同，而近五成元宇宙世代消費者體驗過NFT，「畫作」、「虛擬個人圖像」及「限量圖卡」等視覺產品則是目前最多消費者瀏覽或購買過的NFT項目。

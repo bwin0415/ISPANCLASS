@@ -1,0 +1,22 @@
+.list1 {
+    list-style-type: square;
+    border: 5px dotted rgb(55, 5, 148) ;
+    border-radius: 5px;
+}
+
+.list2 {
+    list-style-type: none;
+    list-style-image: url(../Image/3.png);
+    border: 5px dotted rgb(55, 5, 148) ;
+    border-radius: 5px;
+}
+
+.in {
+    background-color: darkcyan;
+    list-style-position: inside;
+}
+
+.out {
+    background-color: brown;
+    list-style-position: outside;
+}
