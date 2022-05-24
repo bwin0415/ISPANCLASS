@@ -10,18 +10,49 @@
         .tb1 {
             width: 400px;
             border: 3px solid green;
-            border-collapse: collapse;
+            /* border-collapse: collapse; */
+            border-spacing: 0;
+            border-radius: 20px;
         }
 
         td,
         th {
-            border: 1px gray solid;
+            border: 0.5px gray solid;
+        }
+        thead{
+            background-color: black;
+            color:wheat;
+            text-transform: capitalize;
+        }
+        tbody{
+            text-align: center;
+            background-color: brown;
+            color: aquamarine;
+        }
+        tbody tr:nth-child(2n){background-color: darkred;}
+        tbody tr:nth-child(2n+1){background-color: saddlebrown;}
+        tbody td:hover{
+            background-color: darkolivegreen;
+        }
+        tr:first-child th:last-child{
+            border-top-right-radius: 17px;
+        }
+        tr:first-child th:first-child{
+            border-top-left-radius: 17px;
+        }
+        tr:last-child td:last-child{
+            border-bottom-right-radius: 17px;
+        }
+        tr:last-child td:first-child{
+            border-bottom-left-radius: 17px;
         }
     </style>
 </head>
 
 <body>
     <table class="tb1">
+        <caption><h2>表格練習</h2></caption>
+        <thead>
         <tr>
             <th>columm1</th>
             <th>columm2</th>
@@ -34,6 +65,8 @@
             <th colspan="2">columm3</th>
             <!-- <th>columm4</th> -->
         </tr>
+    </thead>
+    <tbody>
         <tr>
             <td>1</td>
             <td>2</td>
@@ -104,6 +137,7 @@
             <td>3</td>
             <td>4</td>
         </tr>
+    </tbody>
     </table>
 </body>
 
