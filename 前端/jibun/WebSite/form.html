@@ -12,9 +12,7 @@
             border-bottom: 3px dashed gray;
             margin: 0px;
             padding: 10px;
-
         }
-
 legend{
     padding: 0;
     margin-left: 164px;
@@ -22,20 +20,16 @@ legend{
 em{
     color: red;
 }
-
-
         .sub {
             width: 450px;
             margin: 20px;
             text-align: center;
         }
-
         .t1 {
             width: 100px;
             float: left;
             text-align: right;
         }
-
         textarea {
             resize: none;
         }
@@ -47,7 +41,6 @@ em{
         }
     </style>
 </head>
-
 <body>
     <form action="#" method="get" enctype="multipart/form-data">
         <fieldset>
@@ -63,20 +56,24 @@ em{
                 <label class="t1" for="Gender">
                     性別： </label>
                 <input type="radio" id="male" name="Gender" value="male"> <label for="male">男</label>
-                <label><input type="radio" id="Gender" name="Gender" value="female">女
+                <label><input type="radio" id="Gender" name="Gender" value="female" required>女
                 </label>
-
             </div>
-
-
             <div class="st1">
                 <label class="t1" for="pwd">
                     密碼：</label>
-                <input type="password" id="pwd" name="pwd" maxlength="8">
-
+                <input type="password" id="pwd" name="pwd" maxlength="8" required><!--required 必填的屬性 -->
             </div>
-
-
+            <div class="st1">
+                <label class="t1" for="birthday">
+                    生日：</label>
+                <input type="date" id="birthday" name="birthday">
+            </div>
+            <div class="st1">
+                <label class="t1" for="email">
+                    Email：</label>
+                <input type="email" id="email" name="email" >
+            </div>
             <div class="st1">
                 <label class="t1" for="">
                     興趣： </label>
@@ -92,6 +89,11 @@ em{
                 <label>
                     <input type="checkbox" name="hobby" value="sport">運動
                 </label>
+            </div>
+            <div class="st1">
+                <label class="t1" for="id">
+                    身分證</label>
+                <input type="text" id="id" name="id" maxlength="10" pattern="[a-z,A-Z]{1}[1-2,8-9]{1}\d{8}"> <!--8(男)跟9(女)是新式外國人--><!--\d=>數字0-9-->
             </div>
         </fieldset>
         <fieldset>
@@ -121,18 +123,21 @@ em{
                 <input type="file" name="file1" multiple>
             </div>
             <div class="st1">
+                <label for="" class="t1" >Blog：</label>
+                <input type="url" name="hplist" list="urllist">
+                <datalist id="urllist">
+                    <option value="http://google.com">Google</option>
+                </datalist>
+
+            </div>
+            <div class="st1">
                 <label class="t1" for="memo"> 意見：</label>
                 <textarea name="commend" id="memo" cols=" 40" rows="5" readonly>
                 </textarea>
             </div>
         </fieldset>
-
-
-
-
-
         <div class="sub">
-            <input type="submit" value="送出" disabled>
+            <input type="submit" value="送出">
             <input type="reset" value="清除">
         </div>
     </form>
