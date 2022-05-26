@@ -19,6 +19,7 @@ namespace WindowsFormsApp1
         List<string> ListClass = new List<string>();
         List<int> listPrice = new List<int>();
         List<int> listId = new List<int>();
+        List<int> Count = new List<int>();
 
         string myDBConnctionString = "";
         public 購物單()
@@ -52,6 +53,7 @@ namespace WindowsFormsApp1
                 listPrice.Add((int)reader["產品價格"]);
                 ListClass.Add((String)reader["產品類別"]);
 
+
                 i += 1;
             }
             Console.WriteLine("讀取{0}筆資料", i);
@@ -63,6 +65,7 @@ namespace WindowsFormsApp1
         {
             listView2.Clear();
             listView2.View = View.Details;
+            listView2.Groups.Add()
             listView2.Columns.Add("序號", 100);//欄位,寬度;
             listView2.Columns.Add("產品名稱", 200);
             listView2.Columns.Add("產品價格", 80);
@@ -72,7 +75,7 @@ namespace WindowsFormsApp1
             for (int i = 0; i < listId.Count; i++)
             {
                 ListViewItem item = new ListViewItem();
-                item.Font = new Font("微軟正黑體", 14, FontStyle.Regular);
+                item.Font = new Font("標楷體", 14, FontStyle.Regular);
                 item.Text = listId[i].ToString();
                 item.SubItems.Add((string)ListName[i]);//第二欄用subItem添加
 

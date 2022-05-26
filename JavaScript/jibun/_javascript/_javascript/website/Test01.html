@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />    
+    <title>Test01</title>
+    <style>
+        .main-box {
+            margin: 50px auto;
+            width: 400px;
+            height: 200px;
+            padding: 50px;
+            box-shadow: 5px 5px 10px #999;
+            border: 1px solid #ffffff;
+            text-align: center;
+            font-size: 1.3em;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-box">
+        <div id="div3">
+            <h3>簡易四則計算器</h3>
+            <input type="text" size="10" id="number1" value="20" />
+            <input type="text" id="op" value="+" style="width:20px; text-align:center;" />
+            <input type="text" size="10" id="number2" value="20" />
+            <button onclick="calculate()">=</button>
+            <input type="text" size="10" id="result" readonly />
+        </div>
+    </div>
+
+    <script type="text/javascript">
+       //基本資料型態
+        let g1 = "hello";//string
+        let n1 = 16.000020000001005;//number
+        let b1 = true;//boolesn
+        let u1 ; //undefined
+        let nu1 = null;//尚未決定放物件參考物件位子
+
+        const c1;
+
+
+
+
+
+
+
+        // document.write("<div>HELLO WORLD</div><hr/>"); 不要用
+        let v11 = 1000;
+        var v1 = 100
+        switch (v1) {
+            case 100:
+                console.log("aaa");
+                break;
+            case 200:
+                console.log("bbb");
+                break;
+            case 300:
+                console.log("ccc");
+                break;
+            default:
+                console.log("ccc");
+        }
+        function calculate() {
+            window.vv = 100;
+            console.log("vv=",vv);//可以動生成
+            {
+               //var v11 =100;//可以重複宣告
+                console.log("v11=", v11);
+                let v11 = 100;//考試有考 let不可以重複宣告
+                console.log("v11=", v11);
+            }
+            console.log("v11=",v11);
+            console.log("v11="+v11);
+            console.log("v11=%d",v11);//%d整數,%f浮點數,%s字串
+            //ES2015開始 template literal 樣板字面值(反引號)
+            console.log(`v11=${v11}`)//string interpolation 字串插值
+
+          
+
+
+
+
+
+            var s1 = document.getElementById("number1").value;
+            var s2 = document.getElementById("number2").value;
+            var n1 = parseInt(s1);
+            var n2 = parseInt(s2);
+            var op = document.getElementById("op").value;
+
+            var n3;
+            switch (op) {
+                case "+":
+                    n3 = n1 + n2;
+                    break;
+                case "-":
+                    n3 = n1 - n2;
+                    break;
+                case "*":
+                    n3 = n1 * n2;
+                    break;
+
+                case "/":
+                    n3 = n1 / n2;
+                    break;
+                default:
+                    n3 = "運算子無效";
+            }
+            document.getElementById("result").value = n3;
+        }
+    </script>
+</body>
+</html>
