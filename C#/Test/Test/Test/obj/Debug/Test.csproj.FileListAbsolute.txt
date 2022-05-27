@@ -18,3 +18,10 @@ G:\RE0CODING\CSCS\C#\Test\Test\Test\obj\Debug\Test.csproj.GenerateResource.cache
 G:\RE0CODING\CSCS\C#\Test\Test\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
 G:\RE0CODING\CSCS\C#\Test\Test\Test\obj\Debug\Test.exe
 G:\RE0CODING\CSCS\C#\Test\Test\Test\obj\Debug\Test.pdb
+C:\Users\Student\Desktop\ISPAN\ISPANCLASS\C#\Test\Test\Test\obj\Debug\Test.csproj.AssemblyReference.cache
+C:\Users\Student\Desktop\ISPAN\ISPANCLASS\C#\Test\Test\Test\obj\Debug\Test.Form1.resources
+C:\Users\Student\Desktop\ISPAN\ISPANCLASS\C#\Test\Test\Test\obj\Debug\Test.Properties.Resources.resources
+C:\Users\Student\Desktop\ISPAN\ISPANCLASS\C#\Test\Test\Test\obj\Debug\Test.csproj.GenerateResource.cache
+C:\Users\Student\Desktop\ISPAN\ISPANCLASS\C#\Test\Test\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+C:\Users\Student\Desktop\ISPAN\ISPANCLASS\C#\Test\Test\Test\obj\Debug\Test.exe
+C:\Users\Student\Desktop\ISPAN\ISPANCLASS\C#\Test\Test\Test\obj\Debug\Test.pdb

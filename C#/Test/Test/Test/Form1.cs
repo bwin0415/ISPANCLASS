@@ -40,6 +40,9 @@ namespace Test
             {
                 Console.WriteLine("true");
             }
+            int b = 0;
+               
+            Console.Write(b++);
 
 
         }

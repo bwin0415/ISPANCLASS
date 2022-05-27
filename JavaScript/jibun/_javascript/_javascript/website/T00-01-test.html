@@ -27,7 +27,60 @@
             <input type="text" size="10" id="result"  readonly/>
         </div>
         <script>
-            
+            var var1 = 100;
+            console.log("var1", typeof var1 + "avc") // Numberavc
+            console.log("var1", typeof (var1 + "avc")) //String
+
+
+            var _v1 = 100;
+            var _v2 = 123.45;
+            //var _v3 = _v1 + 20 - _v2 * 5 / 3 + "px";
+            var _v3 = (((_v1 + 20) - ((_v2 * 5) / 3)) + "px");
+            console.log(_v3);
+
+            var var1 = 100;
+            console.log(var1++) //100
+            console.log(var1) //101
+            //後遞增
+            console.log(++var1)//101
+            console.log(var1)//101
+            //先遞增
+
+
+
+
+            var var1 = 100;
+            console.log("var1", typeof var1);//查看資料類型 number
+            var var1 = "100";
+            console.log("var1", typeof var1);//查看資料類型 string
+
+
+            function calculate() {
+                var s1 = document.getElementById('number1').value;
+                var s2 = document.getElementById('number2').value;
+                var n1 = parseInt(s1);
+                var n2 = parseInt(s2);
+                var op = document.getElementById('op').value;
+                var n3;
+                switch (op) {
+                    case '+':
+                        n3 = n1 + n2;
+                        break;
+                    case '-':
+                        n3 = n1 - n2;
+                        break;
+                    case '*':
+                    case 'x':
+                        n3 = n1 * n2;
+                        break;
+                    case '/':
+                        n3 = n1 / n2;
+                        break;
+                    default:
+                        n3 = '運算符號無效!';
+                }
+                document.getElementById('result').value = n3;
+            }
         </script>
     </div>
 </body>

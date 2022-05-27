@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScriptHomeWork</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1 {
+            width: 80%;
+            height: 80%;
+            border: 0.5em blanchedalmond dotted;
+            margin: 2em auto;
+            padding: 40px;
+        }
+
+        .box2 {
+            background-color: lavenderblush;
+            box-shadow: 10px 10px 5px darkslategrey;
+            width: fit-content;
+            height: 80%;
+            border: black 1px solid;
+            margin: 2em auto;
+            padding: 10px 5px;
+        }
+
+        input {
+            height: 2em;
+            width: 5em;
+            margin: 5px;
+            text-align: center;
+
+        }
+
+        .sender {
+            height: 2em;
+            width: 5em;
+            margin: 5px;
+        }
+        .table1{
+            width: fit-content;
+            height: 80%;
+            border: black 1px solid;
+            margin: 2em auto;
+            padding: 10px 5px;
+            border-spacing: 0px;
+        }
+        
+        td,
+        th {
+            width: 10em;
+            border: 0.5px gray solid;
+           
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        玩家數字： 請輸入五個數字
+        <div class="box2">
+            <input type="text" id="Num1" maxlength="1" autocomplete="請輸入1-9任一數字">
+            <input type="text" id="Num2" maxlength="1" autocomplete="請輸入1-9任一數字">
+            <input type="text" id="Num3" maxlength="1" autocomplete="請輸入1-9任一數字">
+            <input type="text" id="Num4" maxlength="1" autocomplete="請輸入1-9任一數字">
+            <input type="text" id="Num5" maxlength="1" autocomplete="請輸入1-9任一數字">
+            <button class="sender" onclick="_OnClick()">確認</button>
+        </div>
+        <table class="table1">
+            <thead>
+                <tr>
+                    <th >#</th>
+                    <th>猜</th>
+                    <th>結果</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script>
+    let pool = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+        for (let i = 0; i < 4; i++) {
+            let index = Math.floor(Math.random() * (pool.length));
+            answer.push(pool[index]);
+            pool.splice(index, 1);
+        };
+        function _OnClick() {
+
+        }
+    </script>
+</body>
+
+</html>

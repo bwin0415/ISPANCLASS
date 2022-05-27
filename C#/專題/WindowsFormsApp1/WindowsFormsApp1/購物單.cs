@@ -65,7 +65,7 @@ namespace WindowsFormsApp1
         {
             listView2.Clear();
             listView2.View = View.Details;
-            listView2.Groups.Add()
+            //listView2.Groups.Add()
             listView2.Columns.Add("序號", 100);//欄位,寬度;
             listView2.Columns.Add("產品名稱", 200);
             listView2.Columns.Add("產品價格", 80);
