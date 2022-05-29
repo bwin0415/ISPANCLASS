@@ -54,6 +54,7 @@ namespace WindowsFormsApp1
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lBoxOrder = new System.Windows.Forms.ListBox();
             this.btnCheckFlieght = new System.Windows.Forms.Button();
+            this.btnEmpPriceSearch = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -132,6 +133,7 @@ namespace WindowsFormsApp1
             this.txtFlieghtNO.Name = "txtFlieghtNO";
             this.txtFlieghtNO.Size = new System.Drawing.Size(137, 28);
             this.txtFlieghtNO.TabIndex = 1;
+            this.txtFlieghtNO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFlieghtNO_KeyPress);
             // 
             // txtCusmorId
             // 
@@ -224,14 +226,15 @@ namespace WindowsFormsApp1
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnEmpPriceSearch);
             this.groupBox1.Controls.Add(this.btnProductSearch);
             this.groupBox1.Controls.Add(this.btnSearchFlieghtNo);
             this.groupBox1.Font = new System.Drawing.Font("標楷體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox1.Location = new System.Drawing.Point(20, 395);
+            this.groupBox1.Location = new System.Drawing.Point(20, 372);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.groupBox1.Size = new System.Drawing.Size(367, 107);
+            this.groupBox1.Size = new System.Drawing.Size(378, 160);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "員工資料及商品資料查詢";
@@ -348,6 +351,19 @@ namespace WindowsFormsApp1
             this.btnCheckFlieght.Visible = false;
             this.btnCheckFlieght.Click += new System.EventHandler(this.btnCheckFlieght_Click);
             // 
+            // btnEmpPriceSearch
+            // 
+            this.btnEmpPriceSearch.Font = new System.Drawing.Font("標楷體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnEmpPriceSearch.Location = new System.Drawing.Point(17, 100);
+            this.btnEmpPriceSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnEmpPriceSearch.Name = "btnEmpPriceSearch";
+            this.btnEmpPriceSearch.Size = new System.Drawing.Size(138, 42);
+            this.btnEmpPriceSearch.TabIndex = 3;
+            this.btnEmpPriceSearch.Text = "員工業績查詢";
+            this.btnEmpPriceSearch.UseVisualStyleBackColor = true;
+            this.btnEmpPriceSearch.Visible = false;
+            this.btnEmpPriceSearch.Click += new System.EventHandler(this.btnEmpPriceSearch_Click);
+            // 
             // 結帳
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 17F);
@@ -413,6 +429,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.ListBox lBoxOrder;
         private System.Windows.Forms.Button btnCheckFlieght;
         private System.Windows.Forms.Button btnSearchFlieghtNo;
+        private System.Windows.Forms.Button btnEmpPriceSearch;
     }
 }
 

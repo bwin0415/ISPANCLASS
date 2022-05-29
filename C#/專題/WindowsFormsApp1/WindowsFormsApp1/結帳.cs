@@ -14,6 +14,7 @@ namespace WindowsFormsApp1
     public partial class 結帳 : Form
     {
         bool correctId = false;
+        bool correctFlieghtNO = false;
         List<CashierItem> Clist = new List<CashierItem>();
         int empId = 0;
         string name = "";
@@ -40,6 +41,7 @@ namespace WindowsFormsApp1
             dtpA.Visible = false;
             btnCheckFlieght.Visible = false;
             btnCustorIdCheck.Visible = false;
+            btnEmpPriceSearch.Visible = false;
             foreach (ListViewItem item in GlobalVar.lvItemCollection)
             {
 
@@ -100,6 +102,7 @@ namespace WindowsFormsApp1
             {
 
                 Console.Write("姓名空白");
+
             }
 
             string strSQL = "select * from employee where Id=@SearchID";
@@ -112,6 +115,7 @@ namespace WindowsFormsApp1
             }
             reader.Close();
             con.Close();
+            empLogin(empId);
 
         }
         void empLogin(int id)
@@ -157,6 +161,7 @@ namespace WindowsFormsApp1
                 dtpA.Visible = true;
                 btnCheckFlieght.Visible = true;
                 btnCustorIdCheck.Visible = true;
+                btnEmpPriceSearch.Visible = true;
             }
             else
             {
@@ -166,6 +171,7 @@ namespace WindowsFormsApp1
                 dtpA.Visible = false;
                 btnCheckFlieght.Visible = false;
                 btnCustorIdCheck.Visible = false;
+                btnEmpPriceSearch.Visible = false;
             }
         }
 
@@ -194,10 +200,12 @@ namespace WindowsFormsApp1
             if (reader.Read())
             {
                 MessageBox.Show("航班代號正確");
+                correctFlieghtNO = true;
             }
             else
             {
                 MessageBox.Show("航班代號錯誤");
+                correctFlieghtNO = false;
             }
             reader.Close();
             con.Close();
@@ -207,6 +215,7 @@ namespace WindowsFormsApp1
         {
             if (checkId(txtCusmorId.Text))
             {
+
                 MessageBox.Show("身分證號碼正確");
             }
             else
@@ -351,59 +360,92 @@ namespace WindowsFormsApp1
         private void btnOutput_Click(object sender, EventArgs e)
         {
 
-            if (txtCusmorPhone.Text != ""&& correctId )
+            if (txtCusmorPhone.Text.Length ==10&& correctId&& correctFlieghtNO)
             {
-                string strFileAddress = @"C:..\..\Desktop";
-                Random myRnd = new Random();
-                int myNum = myRnd.Next(1000, 9999);
-                string strFileName = DateTime.Now.ToString("yyMMddHHmmss") + myNum.ToString() + @"訂購單.txt";
-                string OrderlistID = DateTime.Now.ToString("yyMMddHHmmss") + myNum.ToString();
-                string strFile = strFileAddress + @"\" + strFileName;
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.InitialDirectory = strFileAddress;
-                sfd.FileName = strFileName;
-                sfd.Filter = "Text File|*.txt";
-
-                DialogResult R = sfd.ShowDialog();
-                if (R == DialogResult.OK)
+                if (lBoxOrder.Items.Count > 0)
                 {
-                    strFile = sfd.FileName;
+
+
+                    string strFileAddress = @"C:..\..\Desktop";
+                    Random myRnd = new Random();
+                    int myNum = myRnd.Next(1000, 9999);
+                    string strFileName = DateTime.Now.ToString("yyMMddHHmmss") + myNum.ToString() + @"訂購單.txt";
+                    string OrderlistID = DateTime.Now.ToString("yyMMddHHmmss") + myNum.ToString();
+                    string strFile = strFileAddress + @"\" + strFileName;
+                    SaveFileDialog sfd = new SaveFileDialog();
+                    sfd.InitialDirectory = strFileAddress;
+                    sfd.FileName = strFileName;
+                    sfd.Filter = "Text File|*.txt";
+
+                    DialogResult R = sfd.ShowDialog();
+                    if (R == DialogResult.OK)
+                    {
+                        strFile = sfd.FileName;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                    //////////////訂購單存檔訂購單存檔
+                    List<string> listOrderInfo = new List<string>();
+                    CashierItem c;
+                    listOrderInfo.Add("****************提貨單**************");
+                    listOrderInfo.Add("--------------------------------------");
+                    listOrderInfo.Add("訂購時間：" + DateTime.Now.ToString());
+                    listOrderInfo.Add("航班時間：" + dtpA.Value.ToString());
+                    listOrderInfo.Add("提貨單號" + OrderlistID);
+                    listOrderInfo.Add("--------------------------------------");
+                    foreach (ListViewItem item in GlobalVar.lvItemCollection)
+                    {
+                        id = Int32.Parse(item.Text);
+                        name = item.SubItems[1].Text;
+                        price = Int32.Parse(item.SubItems[2].Text);
+                        itemclass = item.Tag.ToString();
+                        str = string.Format("產品序號：{0} 產品類別：{1} 產品價格：{2} 產品名稱:{3}", id, itemclass, price, name);
+                        listOrderInfo.Add(str);
+
+                    }
+                    FixSum();
+
+                    listOrderInfo.Add("--------------------------------------");
+                    listOrderInfo.Add("總價：" + sum);
+                    listOrderInfo.Add("*****************謝謝光臨**************");
+
+                    System.IO.File.WriteAllLines(strFile, listOrderInfo, Encoding.UTF8);
+                    MessageBox.Show("存檔成功");
+                    #region SQL匯入業績
+                    int empPrice = 0;
+                    SqlConnection con = new SqlConnection(myDBConnctionString);
+                    con.Open();
+                    string strSQL = "select * from employee where Id=@SearchID";
+                    SqlCommand cmd = new SqlCommand(strSQL, con);
+                    cmd.Parameters.AddWithValue("@SearchID", empId);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        empPrice = (int)reader["業績"];
+                    }
+                    reader.Close();
+                    empPrice += sum;
+                    strSQL = "update employee set 業績=@empPrice from employee where Id=@SearchID";
+                    cmd = new SqlCommand(strSQL, con);
+                    cmd.Parameters.AddWithValue("@SearchID", empId);
+                    cmd.Parameters.AddWithValue("@empPrice", empPrice);
+                    int rows = cmd.ExecuteNonQuery();
+                    con.Close();
+                    Console.WriteLine($"{rows}筆資料修改成功");
+                    #endregion
+
                 }
                 else
                 {
-                    return;
+                    MessageBox.Show("沒有東西需要結帳");
                 }
-                //////////////訂購單存檔訂購單存檔
-                List<string> listOrderInfo = new List<string>();
-                CashierItem c;
-                listOrderInfo.Add("****************提貨單**************");
-                listOrderInfo.Add("--------------------------------------");
-                listOrderInfo.Add("訂購時間：" + DateTime.Now.ToString());
-                listOrderInfo.Add("提貨單號" + OrderlistID);
-                listOrderInfo.Add("--------------------------------------");
-                foreach (ListViewItem item in GlobalVar.lvItemCollection)
-                {
-                    id = Int32.Parse(item.Text);
-                    name = item.SubItems[1].Text;
-                    price = Int32.Parse(item.SubItems[2].Text);
-                    itemclass = item.Tag.ToString();
-                    str = string.Format("產品序號：{0} 產品類別：{1} 產品價格：{2} 產品名稱:{3}", id, itemclass, price, name);
-                    listOrderInfo.Add(str);
-
-                }
-                FixSum();
-                listOrderInfo.Add("--------------------------------------");
-                listOrderInfo.Add("總價：" + sum);
-                listOrderInfo.Add("*****************謝謝光臨**************");
-
-                System.IO.File.WriteAllLines(strFile, listOrderInfo, Encoding.UTF8);
-                MessageBox.Show("存檔成功");
             }
             else
             {
                 MessageBox.Show("請再次確認顧客資訊"); 
             }
-
         }
 
         private void btnSearchFlieghtNo_Click(object sender, EventArgs e)
@@ -455,6 +497,29 @@ namespace WindowsFormsApp1
         private void txtCusmorId_KeyPress(object sender, KeyPressEventArgs e)
         {
             correctId = false;
+        }
+
+        private void txtFlieghtNO_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            correctFlieghtNO = false;
+        }
+
+        private void btnEmpPriceSearch_Click(object sender, EventArgs e)
+        {
+            int empPrice = 0;
+            SqlConnection con = new SqlConnection(myDBConnctionString);
+            con.Open();
+            string strSQL = "select * from employee where Id=@SearchID";
+            SqlCommand cmd = new SqlCommand(strSQL, con);
+            cmd.Parameters.AddWithValue("@SearchID", empId);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                empPrice = (int)reader["業績"];
+            }
+            reader.Close();
+            con.Close();
+            MessageBox.Show($"{lblName.Text}：${empPrice}");
         }
     }
 }
