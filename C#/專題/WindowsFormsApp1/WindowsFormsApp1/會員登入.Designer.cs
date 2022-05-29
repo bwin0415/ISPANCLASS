@@ -75,6 +75,7 @@ namespace WindowsFormsApp1
             this.txtAccount.Size = new System.Drawing.Size(148, 31);
             this.txtAccount.TabIndex = 1;
             this.txtAccount.Enter += new System.EventHandler(this.txtAccount_Enter);
+            this.txtAccount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAccount_KeyPress);
             // 
             // panel1
             // 
@@ -105,6 +106,7 @@ namespace WindowsFormsApp1
             this.mtxtNum.Size = new System.Drawing.Size(148, 31);
             this.mtxtNum.TabIndex = 2;
             this.mtxtNum.Enter += new System.EventHandler(this.mtxtNum_Enter);
+            this.mtxtNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtNum_KeyPress);
             // 
             // panel2
             // 

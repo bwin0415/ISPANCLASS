@@ -62,3 +62,17 @@ C:\Users\Student\Desktop\ISPAN\ISPANCLASS\C#\專題\WindowsFormsApp1\WindowsForm
 C:\Users\Student\Desktop\ISPAN\ISPANCLASS\C#\專題\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
 C:\Users\Student\Desktop\ISPAN\ISPANCLASS\C#\專題\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
 C:\Users\Student\Desktop\ISPAN\ISPANCLASS\C#\專題\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+G:\RE0CODING\ISPANCLASS\C#\專題\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+G:\RE0CODING\ISPANCLASS\C#\專題\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+G:\RE0CODING\ISPANCLASS\C#\專題\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+G:\RE0CODING\ISPANCLASS\C#\專題\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
+G:\RE0CODING\ISPANCLASS\C#\專題\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.會員註冊.resources
+G:\RE0CODING\ISPANCLASS\C#\專題\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.結帳.resources
+G:\RE0CODING\ISPANCLASS\C#\專題\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.購物單.resources
+G:\RE0CODING\ISPANCLASS\C#\專題\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.會員登入.resources
+G:\RE0CODING\ISPANCLASS\C#\專題\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+G:\RE0CODING\ISPANCLASS\C#\專題\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+G:\RE0CODING\ISPANCLASS\C#\專題\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+G:\RE0CODING\ISPANCLASS\C#\專題\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+G:\RE0CODING\ISPANCLASS\C#\專題\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+G:\RE0CODING\ISPANCLASS\C#\專題\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.txtOrdercount.resources

@@ -14,6 +14,7 @@ namespace WindowsFormsApp1
     public partial class 會員登入 : Form
     {
         bool acountHint = false;
+
         ToolTip toolTip1 = new ToolTip();
         string myDBConnctionString = "";
         public 會員登入()
@@ -41,10 +42,13 @@ namespace WindowsFormsApp1
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+
             string name = "";
             string Id = "";
             string account = "";
             int secnum = 0;
+         
+            int memberPoint = 0;
             SqlConnection con = new SqlConnection(myDBConnctionString);
             con.Open();
             Id = txtAccount.Text;
@@ -52,31 +56,45 @@ namespace WindowsFormsApp1
             SqlCommand cmd = new SqlCommand(strSQL, con);
             cmd.Parameters.AddWithValue("@SearchID", Id);
             SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                secnum = (int)reader["密碼"];
-                name = (string)reader["姓名"];
-                account = Id;
+                while (reader.Read())
+                {
 
+                    secnum = (int)reader["密碼"];
+                    name = (string)reader["姓名"];
+                    account = Id;
+                    memberPoint = (int)reader["點數"];
+                }
+                reader.Close();
+                con.Close();
+                if ((txtAccount.Text == account) && (mtxtNum.Text == secnum.ToString()))
+                {
+                    MessageBox.Show("登入成功" + "哈囉" + name);
+                    GlobalVar.User = name;
+                    GlobalVar.UserId = Int32.Parse(Id);
+                    GlobalVar.UserPoint = memberPoint;
+                    GlobalVar.memberLogin = this;
+                    購物單 Cart = new 購物單();
+                    GlobalVar.Cart = Cart;
+                    Cart.Show();
+                    Hide();
+                }
+                else
+                {
+                    MessageBox.Show("帳號密碼錯誤");
+                }
             }
-            reader.Close();
-            con.Close();
+            catch (Exception)
+            {
+
+                MessageBox.Show("請輸入帳號密碼");
+                
+            }
+
             
             
-            if ((txtAccount.Text==account)&&(mtxtNum.Text==secnum.ToString()))
-            {
-                MessageBox.Show("登入成功"+"哈囉"+name);
-                GlobalVar.User = name;
-                GlobalVar.memberLogin = this;
-                購物單 Cart = new 購物單();
-                GlobalVar.Cart = Cart;
-                Cart.Show();
-                Hide();
-            }
-            else
-            {
-                MessageBox.Show("帳號密碼錯誤");
-            }
+
 
         }
 
@@ -123,7 +141,24 @@ namespace WindowsFormsApp1
             toolTip1.ToolTipTitle = "提示訊息";
             toolTip1.SetToolTip(mtxtNum, "密碼為非0開頭的4到8位數字");
             toolTip1.AutoPopDelay = 60000;
-        }       
+        }
 
+        private void txtAccount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void mtxtNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+
+        }
     }
 }

@@ -9,3 +9,14 @@ C:\Users\iii\Documents\教學\dotNet元件開發\WindowsFormsApp3\WindowsFormsAp
 C:\Users\iii\Documents\教學\dotNet元件開發\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.csproj.CoreCompileInputs.cache
 C:\Users\iii\Documents\教學\dotNet元件開發\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.exe
 C:\Users\iii\Documents\教學\dotNet元件開發\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.pdb
+G:\RE0CODING\ISPANCLASS\C#\dotNet老師的\WindowsFormsApp3\WindowsFormsApp3\bin\Debug\WindowsFormsApp3.exe.config
+G:\RE0CODING\ISPANCLASS\C#\dotNet老師的\WindowsFormsApp3\WindowsFormsApp3\bin\Debug\WindowsFormsApp3.exe
+G:\RE0CODING\ISPANCLASS\C#\dotNet老師的\WindowsFormsApp3\WindowsFormsApp3\bin\Debug\WindowsFormsApp3.pdb
+G:\RE0CODING\ISPANCLASS\C#\dotNet老師的\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.csproj.AssemblyReference.cache
+G:\RE0CODING\ISPANCLASS\C#\dotNet老師的\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.Form1.resources
+G:\RE0CODING\ISPANCLASS\C#\dotNet老師的\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.Form2.resources
+G:\RE0CODING\ISPANCLASS\C#\dotNet老師的\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.Properties.Resources.resources
+G:\RE0CODING\ISPANCLASS\C#\dotNet老師的\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.csproj.GenerateResource.cache
+G:\RE0CODING\ISPANCLASS\C#\dotNet老師的\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.csproj.CoreCompileInputs.cache
+G:\RE0CODING\ISPANCLASS\C#\dotNet老師的\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.exe
+G:\RE0CODING\ISPANCLASS\C#\dotNet老師的\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.pdb
