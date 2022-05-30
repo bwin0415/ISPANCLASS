@@ -52,7 +52,7 @@ namespace WindowsFormsApp1
             this.label1.Location = new System.Drawing.Point(196, 35);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 24);
+            this.label1.Size = new System.Drawing.Size(93, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "會員登入";
             // 
@@ -63,7 +63,7 @@ namespace WindowsFormsApp1
             this.label2.Location = new System.Drawing.Point(13, 23);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 24);
+            this.label2.Size = new System.Drawing.Size(93, 19);
             this.label2.TabIndex = 0;
             this.label2.Text = "會員帳號";
             // 
@@ -72,7 +72,7 @@ namespace WindowsFormsApp1
             this.txtAccount.Location = new System.Drawing.Point(183, 19);
             this.txtAccount.Margin = new System.Windows.Forms.Padding(4);
             this.txtAccount.Name = "txtAccount";
-            this.txtAccount.Size = new System.Drawing.Size(148, 31);
+            this.txtAccount.Size = new System.Drawing.Size(148, 27);
             this.txtAccount.TabIndex = 1;
             this.txtAccount.Enter += new System.EventHandler(this.txtAccount_Enter);
             this.txtAccount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAccount_KeyPress);
@@ -93,7 +93,7 @@ namespace WindowsFormsApp1
             this.label3.Location = new System.Drawing.Point(17, 22);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 24);
+            this.label3.Size = new System.Drawing.Size(93, 19);
             this.label3.TabIndex = 0;
             this.label3.Text = "會員密碼";
             // 
@@ -103,7 +103,7 @@ namespace WindowsFormsApp1
             this.mtxtNum.Margin = new System.Windows.Forms.Padding(4);
             this.mtxtNum.Name = "mtxtNum";
             this.mtxtNum.PasswordChar = '*';
-            this.mtxtNum.Size = new System.Drawing.Size(148, 31);
+            this.mtxtNum.Size = new System.Drawing.Size(148, 27);
             this.mtxtNum.TabIndex = 2;
             this.mtxtNum.Enter += new System.EventHandler(this.mtxtNum_Enter);
             this.mtxtNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtNum_KeyPress);
@@ -159,9 +159,9 @@ namespace WindowsFormsApp1
             // 
             // 會員登入
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 501);
+            this.ClientSize = new System.Drawing.Size(468, 403);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

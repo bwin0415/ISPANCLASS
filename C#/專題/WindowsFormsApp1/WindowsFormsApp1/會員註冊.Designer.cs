@@ -103,7 +103,7 @@ namespace WindowsFormsApp1
             this.label8.Location = new System.Drawing.Point(15, 17);
             this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(66, 25);
+            this.label8.Size = new System.Drawing.Size(51, 20);
             this.label8.TabIndex = 5;
             this.label8.Text = "生日";
             // 
@@ -112,7 +112,7 @@ namespace WindowsFormsApp1
             this.dtpbirthday.Location = new System.Drawing.Point(221, 12);
             this.dtpbirthday.Margin = new System.Windows.Forms.Padding(5);
             this.dtpbirthday.Name = "dtpbirthday";
-            this.dtpbirthday.Size = new System.Drawing.Size(330, 28);
+            this.dtpbirthday.Size = new System.Drawing.Size(330, 24);
             this.dtpbirthday.TabIndex = 12;
             // 
             // panel6
@@ -132,7 +132,7 @@ namespace WindowsFormsApp1
             this.label9.Location = new System.Drawing.Point(15, 17);
             this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 25);
+            this.label9.Size = new System.Drawing.Size(64, 20);
             this.label9.TabIndex = 6;
             this.label9.Text = "Email";
             // 
@@ -141,7 +141,7 @@ namespace WindowsFormsApp1
             this.txtEmail.Location = new System.Drawing.Point(231, 12);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(5);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(320, 28);
+            this.txtEmail.Size = new System.Drawing.Size(320, 24);
             this.txtEmail.TabIndex = 11;
             // 
             // panel1
@@ -159,8 +159,9 @@ namespace WindowsFormsApp1
             this.txtNumSec.Location = new System.Drawing.Point(279, 14);
             this.txtNumSec.Margin = new System.Windows.Forms.Padding(5);
             this.txtNumSec.Name = "txtNumSec";
-            this.txtNumSec.Size = new System.Drawing.Size(273, 28);
+            this.txtNumSec.Size = new System.Drawing.Size(273, 24);
             this.txtNumSec.TabIndex = 11;
+            this.txtNumSec.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumSec_KeyPress);
             // 
             // label2
             // 
@@ -169,7 +170,7 @@ namespace WindowsFormsApp1
             this.label2.Location = new System.Drawing.Point(15, 16);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 25);
+            this.label2.Size = new System.Drawing.Size(93, 20);
             this.label2.TabIndex = 7;
             this.label2.Text = "二次密碼";
             // 
@@ -188,8 +189,9 @@ namespace WindowsFormsApp1
             this.txtNum.Location = new System.Drawing.Point(280, 12);
             this.txtNum.Margin = new System.Windows.Forms.Padding(5);
             this.txtNum.Name = "txtNum";
-            this.txtNum.Size = new System.Drawing.Size(273, 28);
+            this.txtNum.Size = new System.Drawing.Size(273, 24);
             this.txtNum.TabIndex = 11;
+            this.txtNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
             // 
             // label1
             // 
@@ -198,7 +200,7 @@ namespace WindowsFormsApp1
             this.label1.Location = new System.Drawing.Point(15, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 25);
+            this.label1.Size = new System.Drawing.Size(93, 20);
             this.label1.TabIndex = 7;
             this.label1.Text = "會員密碼";
             // 
@@ -219,7 +221,7 @@ namespace WindowsFormsApp1
             this.label10.Location = new System.Drawing.Point(15, 17);
             this.label10.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(93, 25);
+            this.label10.Size = new System.Drawing.Size(72, 20);
             this.label10.TabIndex = 7;
             this.label10.Text = "身分證";
             // 
@@ -228,7 +230,7 @@ namespace WindowsFormsApp1
             this.txtId.Location = new System.Drawing.Point(280, 12);
             this.txtId.Margin = new System.Windows.Forms.Padding(5);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(273, 28);
+            this.txtId.Size = new System.Drawing.Size(273, 24);
             this.txtId.TabIndex = 11;
             // 
             // panel3
@@ -246,7 +248,7 @@ namespace WindowsFormsApp1
             this.txtPhone.Location = new System.Drawing.Point(339, 13);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(5);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(214, 28);
+            this.txtPhone.Size = new System.Drawing.Size(214, 24);
             this.txtPhone.TabIndex = 11;
             // 
             // label11
@@ -256,7 +258,7 @@ namespace WindowsFormsApp1
             this.label11.Location = new System.Drawing.Point(15, 18);
             this.label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(66, 25);
+            this.label11.Size = new System.Drawing.Size(51, 20);
             this.label11.TabIndex = 8;
             this.label11.Text = "電話";
             // 
@@ -275,7 +277,7 @@ namespace WindowsFormsApp1
             this.txtName.Location = new System.Drawing.Point(339, 16);
             this.txtName.Margin = new System.Windows.Forms.Padding(5);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(214, 28);
+            this.txtName.Size = new System.Drawing.Size(214, 24);
             this.txtName.TabIndex = 11;
             // 
             // label12
@@ -285,7 +287,7 @@ namespace WindowsFormsApp1
             this.label12.Location = new System.Drawing.Point(15, 21);
             this.label12.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(66, 25);
+            this.label12.Size = new System.Drawing.Size(51, 20);
             this.label12.TabIndex = 9;
             this.label12.Text = "姓名";
             // 
@@ -295,14 +297,14 @@ namespace WindowsFormsApp1
             this.lblMemberId.Font = new System.Drawing.Font("標楷體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblMemberId.Location = new System.Drawing.Point(506, 625);
             this.lblMemberId.Name = "lblMemberId";
-            this.lblMemberId.Size = new System.Drawing.Size(114, 20);
+            this.lblMemberId.Size = new System.Drawing.Size(93, 16);
             this.lblMemberId.TabIndex = 27;
             this.lblMemberId.Text = "會員編號：";
             this.lblMemberId.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // 會員註冊
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Info;

@@ -392,7 +392,8 @@ namespace WindowsFormsApp1
                     listOrderInfo.Add("****************提貨單**************");
                     listOrderInfo.Add("--------------------------------------");
                     listOrderInfo.Add("訂購時間：" + DateTime.Now.ToString());
-                    listOrderInfo.Add("航班時間：" + dtpA.Value.ToString());
+                    listOrderInfo.Add("航班時間：" + dtpA.Value.ToString()+"航班代號："+txtFlieghtNO.Text);
+                    listOrderInfo.Add("身分證：" +txtCusmorId.Text+" 電話："+txtCusmorPhone.Text);
                     listOrderInfo.Add("提貨單號" + OrderlistID);
                     listOrderInfo.Add("--------------------------------------");
                     foreach (ListViewItem item in GlobalVar.lvItemCollection)
@@ -519,7 +520,7 @@ namespace WindowsFormsApp1
             }
             reader.Close();
             con.Close();
-            MessageBox.Show($"{lblName.Text}：${empPrice}");
+            MessageBox.Show($"{lblName.Text}-業績：${empPrice}");
         }
     }
 }

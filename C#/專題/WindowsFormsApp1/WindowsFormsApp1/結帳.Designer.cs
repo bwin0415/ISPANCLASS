@@ -45,6 +45,7 @@ namespace WindowsFormsApp1
             this.mtxtPwd = new System.Windows.Forms.MaskedTextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnEmpPriceSearch = new System.Windows.Forms.Button();
             this.btnProductSearch = new System.Windows.Forms.Button();
             this.btnSearchFlieghtNo = new System.Windows.Forms.Button();
             this.btnClearItem = new System.Windows.Forms.Button();
@@ -54,7 +55,6 @@ namespace WindowsFormsApp1
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lBoxOrder = new System.Windows.Forms.ListBox();
             this.btnCheckFlieght = new System.Windows.Forms.Button();
-            this.btnEmpPriceSearch = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +66,7 @@ namespace WindowsFormsApp1
             this.label1.Location = new System.Drawing.Point(17, 47);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 17);
+            this.label1.Size = new System.Drawing.Size(67, 14);
             this.label1.TabIndex = 0;
             this.label1.Text = "員工編號";
             // 
@@ -77,7 +77,7 @@ namespace WindowsFormsApp1
             this.label2.Location = new System.Drawing.Point(17, 108);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 17);
+            this.label2.Size = new System.Drawing.Size(67, 14);
             this.label2.TabIndex = 0;
             this.label2.Text = "員工密碼";
             // 
@@ -88,7 +88,7 @@ namespace WindowsFormsApp1
             this.label3.Location = new System.Drawing.Point(17, 169);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 17);
+            this.label3.Size = new System.Drawing.Size(67, 14);
             this.label3.TabIndex = 0;
             this.label3.Text = "航班代號";
             // 
@@ -99,7 +99,7 @@ namespace WindowsFormsApp1
             this.label4.Location = new System.Drawing.Point(17, 235);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 17);
+            this.label4.Size = new System.Drawing.Size(67, 14);
             this.label4.TabIndex = 0;
             this.label4.Text = "航班日期";
             // 
@@ -110,7 +110,7 @@ namespace WindowsFormsApp1
             this.label5.Location = new System.Drawing.Point(17, 292);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 17);
+            this.label5.Size = new System.Drawing.Size(82, 14);
             this.label5.TabIndex = 0;
             this.label5.Text = "客戶身分證";
             // 
@@ -120,7 +120,7 @@ namespace WindowsFormsApp1
             this.txtId.Location = new System.Drawing.Point(109, 44);
             this.txtId.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(137, 28);
+            this.txtId.Size = new System.Drawing.Size(137, 24);
             this.txtId.TabIndex = 1;
             this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
             this.txtId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtId_KeyPress);
@@ -131,7 +131,7 @@ namespace WindowsFormsApp1
             this.txtFlieghtNO.Location = new System.Drawing.Point(107, 166);
             this.txtFlieghtNO.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtFlieghtNO.Name = "txtFlieghtNO";
-            this.txtFlieghtNO.Size = new System.Drawing.Size(137, 28);
+            this.txtFlieghtNO.Size = new System.Drawing.Size(137, 24);
             this.txtFlieghtNO.TabIndex = 1;
             this.txtFlieghtNO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFlieghtNO_KeyPress);
             // 
@@ -141,7 +141,7 @@ namespace WindowsFormsApp1
             this.txtCusmorId.Location = new System.Drawing.Point(128, 286);
             this.txtCusmorId.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtCusmorId.Name = "txtCusmorId";
-            this.txtCusmorId.Size = new System.Drawing.Size(137, 28);
+            this.txtCusmorId.Size = new System.Drawing.Size(137, 24);
             this.txtCusmorId.TabIndex = 1;
             this.txtCusmorId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCusmorId_KeyPress);
             // 
@@ -165,7 +165,7 @@ namespace WindowsFormsApp1
             this.lblTotalPay.Location = new System.Drawing.Point(994, 328);
             this.lblTotalPay.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalPay.Name = "lblTotalPay";
-            this.lblTotalPay.Size = new System.Drawing.Size(46, 17);
+            this.lblTotalPay.Size = new System.Drawing.Size(37, 14);
             this.lblTotalPay.TabIndex = 0;
             this.lblTotalPay.Text = "總價";
             this.lblTotalPay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -173,10 +173,10 @@ namespace WindowsFormsApp1
             // dtpA
             // 
             this.dtpA.Font = new System.Drawing.Font("標楷體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.dtpA.Location = new System.Drawing.Point(107, 227);
+            this.dtpA.Location = new System.Drawing.Point(107, 228);
             this.dtpA.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtpA.Name = "dtpA";
-            this.dtpA.Size = new System.Drawing.Size(167, 28);
+            this.dtpA.Size = new System.Drawing.Size(167, 24);
             this.dtpA.TabIndex = 4;
             this.dtpA.Visible = false;
             // 
@@ -187,7 +187,7 @@ namespace WindowsFormsApp1
             this.label8.Location = new System.Drawing.Point(17, 331);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 17);
+            this.label8.Size = new System.Drawing.Size(37, 14);
             this.label8.TabIndex = 0;
             this.label8.Text = "手機";
             // 
@@ -197,7 +197,7 @@ namespace WindowsFormsApp1
             this.txtCusmorPhone.Location = new System.Drawing.Point(128, 328);
             this.txtCusmorPhone.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtCusmorPhone.Name = "txtCusmorPhone";
-            this.txtCusmorPhone.Size = new System.Drawing.Size(137, 28);
+            this.txtCusmorPhone.Size = new System.Drawing.Size(137, 24);
             this.txtCusmorPhone.TabIndex = 1;
             this.txtCusmorPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCusmorPhone_KeyPress);
             // 
@@ -208,7 +208,7 @@ namespace WindowsFormsApp1
             this.mtxtPwd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.mtxtPwd.Name = "mtxtPwd";
             this.mtxtPwd.PasswordChar = '*';
-            this.mtxtPwd.Size = new System.Drawing.Size(137, 28);
+            this.mtxtPwd.Size = new System.Drawing.Size(137, 24);
             this.mtxtPwd.TabIndex = 5;
             this.mtxtPwd.TextChanged += new System.EventHandler(this.mtxtPwd_TextChanged);
             this.mtxtPwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtPwd_KeyPress);
@@ -220,9 +220,8 @@ namespace WindowsFormsApp1
             this.lblName.Location = new System.Drawing.Point(254, 47);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(84, 17);
+            this.lblName.Size = new System.Drawing.Size(0, 14);
             this.lblName.TabIndex = 0;
-            this.lblName.Text = "員工姓名";
             // 
             // groupBox1
             // 
@@ -238,6 +237,19 @@ namespace WindowsFormsApp1
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "員工資料及商品資料查詢";
+            // 
+            // btnEmpPriceSearch
+            // 
+            this.btnEmpPriceSearch.Font = new System.Drawing.Font("標楷體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnEmpPriceSearch.Location = new System.Drawing.Point(17, 100);
+            this.btnEmpPriceSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnEmpPriceSearch.Name = "btnEmpPriceSearch";
+            this.btnEmpPriceSearch.Size = new System.Drawing.Size(138, 42);
+            this.btnEmpPriceSearch.TabIndex = 3;
+            this.btnEmpPriceSearch.Text = "員工業績查詢";
+            this.btnEmpPriceSearch.UseVisualStyleBackColor = true;
+            this.btnEmpPriceSearch.Visible = false;
+            this.btnEmpPriceSearch.Click += new System.EventHandler(this.btnEmpPriceSearch_Click);
             // 
             // btnProductSearch
             // 
@@ -331,17 +343,17 @@ namespace WindowsFormsApp1
             // 
             this.lBoxOrder.Font = new System.Drawing.Font("標楷體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lBoxOrder.FormattingEnabled = true;
-            this.lBoxOrder.ItemHeight = 17;
+            this.lBoxOrder.ItemHeight = 14;
             this.lBoxOrder.Location = new System.Drawing.Point(628, 44);
             this.lBoxOrder.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.lBoxOrder.Name = "lBoxOrder";
-            this.lBoxOrder.Size = new System.Drawing.Size(538, 276);
+            this.lBoxOrder.Size = new System.Drawing.Size(538, 270);
             this.lBoxOrder.TabIndex = 2;
             // 
             // btnCheckFlieght
             // 
             this.btnCheckFlieght.Font = new System.Drawing.Font("標楷體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnCheckFlieght.Location = new System.Drawing.Point(266, 169);
+            this.btnCheckFlieght.Location = new System.Drawing.Point(283, 161);
             this.btnCheckFlieght.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCheckFlieght.Name = "btnCheckFlieght";
             this.btnCheckFlieght.Size = new System.Drawing.Size(104, 31);
@@ -351,22 +363,9 @@ namespace WindowsFormsApp1
             this.btnCheckFlieght.Visible = false;
             this.btnCheckFlieght.Click += new System.EventHandler(this.btnCheckFlieght_Click);
             // 
-            // btnEmpPriceSearch
-            // 
-            this.btnEmpPriceSearch.Font = new System.Drawing.Font("標楷體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnEmpPriceSearch.Location = new System.Drawing.Point(17, 100);
-            this.btnEmpPriceSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnEmpPriceSearch.Name = "btnEmpPriceSearch";
-            this.btnEmpPriceSearch.Size = new System.Drawing.Size(138, 42);
-            this.btnEmpPriceSearch.TabIndex = 3;
-            this.btnEmpPriceSearch.Text = "員工業績查詢";
-            this.btnEmpPriceSearch.UseVisualStyleBackColor = true;
-            this.btnEmpPriceSearch.Visible = false;
-            this.btnEmpPriceSearch.Click += new System.EventHandler(this.btnEmpPriceSearch_Click);
-            // 
             // 結帳
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(1242, 554);

@@ -225,5 +225,21 @@ namespace WindowsFormsApp1
         #endregion
 
         #endregion
+
+        private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNumSec_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
