@@ -32,7 +32,7 @@
 
         input {
             height: 2em;
-            width: 5em;
+            width: 6em;
             margin: 5px;
             text-align: center;
 
@@ -43,7 +43,8 @@
             width: 5em;
             margin: 5px;
         }
-        .table1{
+
+        .table1 {
             width: fit-content;
             height: 80%;
             border: black 1px solid;
@@ -51,31 +52,36 @@
             padding: 10px 5px;
             border-spacing: 0px;
         }
-        
+
         td,
         th {
             width: 10em;
             border: 0.5px gray solid;
-           
+
         }
     </style>
 </head>
 
 <body>
     <div class="box1">
-        玩家數字： 請輸入五個數字
+        玩家數字： 請輸入五個0-9數字不得重複
         <div class="box2">
-            <input type="text" id="Num1" maxlength="1" autocomplete="請輸入1-9任一數字">
-            <input type="text" id="Num2" maxlength="1" autocomplete="請輸入1-9任一數字">
-            <input type="text" id="Num3" maxlength="1" autocomplete="請輸入1-9任一數字">
-            <input type="text" id="Num4" maxlength="1" autocomplete="請輸入1-9任一數字">
-            <input type="text" id="Num5" maxlength="1" autocomplete="請輸入1-9任一數字">
+            <input type="text" id="Num1" maxlength="1" autocomplete="off" placeholder="請輸入數字"
+                oninput="value=value.replace(/[^\d]/g,'')">
+            <input type="text" id="Num2" maxlength="1" autocomplete="off" placeholder="請輸入數字"
+                oninput="value=value.replace(/[^\d]/g,'')">
+            <input type="text" id="Num3" maxlength="1" autocomplete="off" placeholder="請輸入數字"
+                oninput="value=value.replace(/[^\d]/g,'')">
+            <input type="text" id="Num4" maxlength="1" autocomplete="off" placeholder="請輸入數字"
+                oninput="value=value.replace(/[^\d]/g,'')">
+            <input type="text" id="Num5" maxlength="1" autocomplete="off" placeholder="請輸入數字"
+                oninput="value=value.replace(/[^\d]/g,'')">
             <button class="sender" onclick="_OnClick()">確認</button>
         </div>
         <table class="table1">
             <thead>
                 <tr>
-                    <th >#</th>
+                    <th>#</th>
                     <th>猜</th>
                     <th>結果</th>
                 </tr>
@@ -85,15 +91,22 @@
         </table>
     </div>
     <script>
-    let pool = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-        for (let i = 0; i < 4; i++) {
+        var answer = "";
+        let pool = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+        for (let i = 0; i < 5; i++) {
             let index = Math.floor(Math.random() * (pool.length));
-            answer.push(pool[index]);
-            pool.splice(index, 1);
+            answer += (`${pool[index]}`);
+            pool.splice(index, 1);//不重複
         };
+        console.log(answer);
         function _OnClick() {
+            
+            var a_Count;
+            var b_Count;
+
 
         }
+
     </script>
 </body>
 

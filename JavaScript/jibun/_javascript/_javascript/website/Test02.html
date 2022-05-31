@@ -4,6 +4,25 @@
     <meta charset="utf-8" />
     <title>Test02</title>
     <script>
+        (function (message) {
+            console.log(message);
+        })
+            ('Hello World FK');
+
+        
+        function f3a(n1) {
+            return n1 ** 2;
+        }
+        let f3b = function (n1) {
+            return n1 ** 2;
+        }
+        let f3c = n1 =>  n1 ** 2;
+        
+        console.log(f3a(3));
+        console.log(f3b(3));
+        console.log(f3c(3));
+
+
         var lang = "CHINESE"
         var greeting = lang == "CHINESE" ? '歡迎' : "Welcome";
         console.log(greeting);
@@ -55,25 +74,46 @@
             document.getElementById("message").value = message;
         }
     </script>
+    <style>
+        .main-box {
+            margin: 50px auto;
+            width: 400px;
+            height: 250px;
+            padding: 50px;
+            box-shadow: 5px 5px 10px #999;
+            border: 1px solid #fff;
+            text-align: center;
+        }
+    </style>
 </head>
 <body onload="_onLoad()
     ">
-    <div>
+    <div class="main-box">
+        <div>
+            <input type="text" id="b1" size="3" value="1" />
+            <input type="text" id="b2" value="10" size="3" />
+            <button onclick="f3()">累加值為</button>
+            <input type="text" id="bsum" disabled size="3" />
+        </div>
+        <hr />
+        <div>
 
-        <input type="text" id="n1" size="3" value="1" />~
-        <input type="text" id="n2" value="10" size="3" />
-        <button onclick="f2()">累加值為</button>
-        <input type="text" id="sum" disabled size="3" />
-    </div>
-    <hr />
-    <div>
-        <label for="sex">
-            性別
-        </label>
-        <input type="text" id="sex" oninput="f1()" size="3" />
+            <input type="text" id="n1" size="3" value="1" />
+            <input type="text" id="n2" value="10" size="3" />
+            <button onclick="f2()">累加值為</button>
+            <input type="text" id="sum" disabled size="3" />
+        </div>
+        <hr />
+        <div>
+            <label for="sex">
+                性別
+            </label>
+            <input type="text" id="sex" oninput="f1()" size="3" />
 
-        <input type="text" id="message" disabled size="20" />
+            <input type="text" id="message" disabled size="20" />
+        </div>
     </div>
+
     <h1 id="h1-1">Hello world</h1>
     <script>
         function f2() {
@@ -109,8 +149,88 @@
             } while (i <= n2);
             document.getElementById("sum").value = total;
         }
+        function f3() {
+            let n1 = parseInt(document.getElementById("b1").value);
+            let n2 = parseInt(document.getElementById("b2").value);
+            function GetTotal(n1, n2, cb) {
+                if (n1 > n2) {
+                    let tmp = n1;
+                    n1 = n2;
+                    n2 = tmp;
+                }
+                let total = 0;
+                for (let i = n1; i <= n2; i++) {
+                    total = total + i;
+                }
+                cb(total);
+            }
+            GetTotal(n1, n2,
+                //function (tot) {document.getElementById("bsum").value = tot;
+                //}
+                //(tot) => { document.getElementById("bsum").value = tot}
+                tot => document.getElementById("bsum").value = tot//只有一個參數()可省略，只有一列可以省略大括號。
+            );
+        }
+        function Cat(name, age) {
+            this.name = name;
+            this.age = age;
+            this.cry = function () {
+                alert(`${this.name}喵喵喵...`);
+            }
+        }
+        var cat1 = new Cat("Kitty", 3)
+        var cat2 = new Cat("Maomao", 5)
+        cat2.cry();
+        cat1.cry();
+
+        let e = {
+            employeeId: "A001",
+            firstName:"Nancy",
+            birthdate: new Date(1980, 4, 10),
+            sing :function () {
+                alert(`${this.firstName
+                    }${this.birthdate}拉拉啦....`)
+            }
+
+        };
+        //e.sing();
+        console.log(e.toString());
+        console.log(JSON.stringify(e))
+        let jsonStr = JSON.stringify(e);
+        let jsonObj = JSON.parse(jsonStr);
+        alert(jsonObj.firstName)
 
 
+
+        let emp = new Object();
+        emp.emploueeid = "A001";
+        emp.firstname = "Nancy";
+        emp.birthdate = new Date(1990, 10, 10, 20, 30);
+        emp.sing = function () {
+            alert(`${this.firstname}(${this.birthdate.toString()})拉拉拉...`)
+        }
+        emp.sing();
+        //迭代(遍歷)陣列 
+        //let a1 = new Array(10, 15, 20);
+        let a1 = [10, 15, 20];
+        var t=0
+        for (let i = 0; i < a1.length; i++) {
+            t += a1[i];
+        }
+        console.log(`t=${t}`)
+        t=0
+        for (idx in a1) {
+            t += a1[idx]
+        }
+        console.log(`t=${t}`)
+        t = 0
+        for (value of a1) {
+            t += value
+        }
+        console.log(`t=${t}`)
+        t = 0
+        a1.forEach(function (el, idx) { t += el });
+        console.log(`t=${t}`)
     </script>
 </body>
 </html>
