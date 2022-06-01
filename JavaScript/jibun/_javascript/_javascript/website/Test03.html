@@ -38,10 +38,11 @@
             else {
                 console.log(`${e.type}***`)
             }
-        }
-        function myEventHandler2(e) {
-            let div2 = document.getElementById("div2");
-            div2.innerHTML += `<div>${e.type} code=${e.code} key=${e.key}...</div>`;
+
+
+
+
+
         }
 
 
@@ -54,12 +55,6 @@
                   onmouseover="myEventHandler(event)"
                   onmouseout="myEventHandler(event)"
                   onclick="myEventHandler(event)" cols="10" rows="10"></textarea><div id="div1"></div>
-    </div>
-    <div>
-        <textarea 
-                  onkeydown="myEventHandler2(event)"
-                  onkeypress="myEventHandler2(event)"
-                  onkeyup="myEventHandler2(event)" cols="10" rows="10"></textarea><div id="div2"></div>
     </div>
 </body>
 </html>
