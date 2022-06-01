@@ -73,6 +73,14 @@
             }
             document.getElementById("message").value = message;
         }
+        function init() {
+            //b1.onclick=function(){}
+            let btn1 = document.getElementById("btn1");
+            //onclick第二招
+            /* btn1.onclick = function () { f3(); }*/
+            // onclick第三招 ：用API
+            btn1.addEventListener("click", function () { f3() })
+        }
     </script>
     <style>
         .main-box {
@@ -86,13 +94,15 @@
         }
     </style>
 </head>
-<body onload="_onLoad()
+<body onload="init();
     ">
     <div class="main-box">
         <div>
             <input type="text" id="b1" size="3" value="1" />
             <input type="text" id="b2" value="10" size="3" />
-            <button onclick="f3()">累加值為</button>
+            <!--第一招：使用onclick事件處理器-->
+            <!--<button onclick="f3()">累加值為</button>-->
+            <button id="btn1">累加值為</button>
             <input type="text" id="bsum" disabled size="3" />
         </div>
         <hr />
