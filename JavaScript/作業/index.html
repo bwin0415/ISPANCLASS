@@ -59,6 +59,10 @@
             border: 0.5px gray solid;
 
         }
+
+        input:focus::placeholder {
+            color: transparent;
+        }
     </style>
 </head>
 
@@ -99,14 +103,10 @@
             pool.splice(index, 1);//不重複
         };
         console.log(answer);
-        function _OnClick() {
-            
-            var a_Count;
-            var b_Count;
-
-
+        for (let i; i > 6; i++) {
+            var userAnswer = document.querySelectorAll(`#Num` + `${i}`);
+            console.debug(`${userAnswer[i]}`)
         }
-
     </script>
 </body>
 
