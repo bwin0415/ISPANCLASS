@@ -30,6 +30,16 @@
             padding: 10px 5px;
         }
 
+        .box3 {
+
+            box-shadow: 10px 10px 5px darkslategrey;
+            width: fit-content;
+            height: 80%;
+            border: black 1px solid;
+            margin: 2em auto;
+            padding: 10px 5px;
+        }
+
         input {
             height: 2em;
             width: 6em;
@@ -55,9 +65,22 @@
 
         td,
         th {
+            text-align: center;
             width: 10em;
             border: 0.5px gray solid;
 
+
+        }
+
+        tbody tr:nth-child(2n) {
+            background-color: darkred;
+            color: rgb(255, 255, 255);
+            ;
+        }
+
+        tbody tr:nth-child(2n+1) {
+            background-color: saddlebrown;
+            color: rgb(255, 255, 255)
         }
 
         input:focus::placeholder {
@@ -70,29 +93,35 @@
     <div class="box1">
         玩家數字： 請輸入五個0-9數字不得重複
         <div class="box2">
-            <input type="text" id="Num1" maxlength="1" autocomplete="off" placeholder="請輸入數字"
+            <input type="text" class="txtNum" id="Num1" maxlength="1" autocomplete="off" placeholder="請輸入數字"
                 oninput="value=value.replace(/[^\d]/g,'')">
-            <input type="text" id="Num2" maxlength="1" autocomplete="off" placeholder="請輸入數字"
+            <input type="text" class="txtNum" id="Num2" maxlength="1" autocomplete="off" placeholder="請輸入數字"
                 oninput="value=value.replace(/[^\d]/g,'')">
-            <input type="text" id="Num3" maxlength="1" autocomplete="off" placeholder="請輸入數字"
+            <input type="text" class="txtNum" id="Num3" maxlength="1" autocomplete="off" placeholder="請輸入數字"
                 oninput="value=value.replace(/[^\d]/g,'')">
-            <input type="text" id="Num4" maxlength="1" autocomplete="off" placeholder="請輸入數字"
+            <input type="text" class="txtNum" id="Num4" maxlength="1" autocomplete="off" placeholder="請輸入數字"
                 oninput="value=value.replace(/[^\d]/g,'')">
-            <input type="text" id="Num5" maxlength="1" autocomplete="off" placeholder="請輸入數字"
-                oninput="value=value.replace(/[^\d]/g,'')">
-            <button class="sender" onclick="_OnClick()">確認</button>
+            <input type="text" class="txtNum" id="Num5" maxlength="1" autocomplete="off" placeholder="請輸入數字"
+                oninput="value=value.replace(/[^\d]/g,'')" >
+            <button class="sender" onclick="onClick()">確認</button>
         </div>
-        <table class="table1">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>猜</th>
-                    <th>結果</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        <div class="box3">
+            <table class="table1">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>猜</th>
+                        <th>結果</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <div>
+                <button class="sender" onclick="myRefresh()">重新開始</button>
+                <button class="sender" onclick="appearAns()">顯示答案</button>
+            </div>
+        </div>
     </div>
     <script>
         var answer = "";
@@ -103,11 +132,50 @@
             pool.splice(index, 1);//不重複
         };
         console.log(answer);
-        for (let i; i > 6; i++) {
-            var userAnswer = document.querySelectorAll(`#Num` + `${i}`);
-            console.debug(`${userAnswer[i]}`)
+        function onClick() {
+            let playerNum = new Array(5);
+            playerNum[0] = document.getElementById('Num1').value
+            playerNum[1] = document.getElementById('Num2').value
+            playerNum[2] = document.getElementById('Num3').value
+            playerNum[3] = document.getElementById('Num4').value
+            playerNum[4] = document.getElementById('Num5').value
+            var check = Array.from(new Set(playerNum))
+            if (check.length != 5) {
+                alert("重複")
+            }
+            else {
+                console.log(check)
+                var times = 0
+                var a = 0
+                var b = 0;
+                var g = check.join("")
+                for (var i = 0; i < 5; i++) {
+                    var idx = answer.indexOf(g[i]);
+                    if (idx != -1) {
+                        if (idx == i) {
+                            a++;
+                        } else {
+                            b++;
+                        }
+                    }
+                }
+                if (a == 5) {
+                    alert('獲勝！');
+                }
+                times += 1;
+                $('tbody').append('<tr><td>' + times + '</td><td>' + g + '</td><td>' + 'a:' + a + 'b:' + b + '</td></tr>');
+            }
+        }
+        function myRefresh() {
+            parent.document.location.reload()
+        }
+        function appearAns() {
+            alert(answer);
         }
     </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>
