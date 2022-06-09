@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btnHi">Hi</button>
+    <button id="On">on</button>
+    <button id="Off">off</button>
+    <script src="https://code.jquery.com/jquery-3.6.0.js">  //$=JQueey  </script>
+    <script>
+        // $('#btnHi').click(() => {
+        //     console.log("hi");
+        // })
+        const sayHi=()=>{
+            console.log("hi");
+        }
+        $('#On').click(() => {
+            $('#btnHi').on('click',sayHi)
+        })
+        $('#Off').click(()=>{
+            $('#btnHi').off('click',sayHi)
+        })
+    </script>
+</body>
+
+</html>

@@ -16,7 +16,8 @@
             <form>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        name="email">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                         else.</small>
                 </div>
@@ -41,24 +42,24 @@
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
         crossorigin="anonymous"></script>
     <script>
-        $('form').submit(function(e){
+        $('form').submit(function (e) {
             //自己用AJAX送內容
             e.preventDefault();
             // console.log('hi',e)
             $('#exampleInputEmail1').val('ig@ggg.com')
 
         })
-        $('input').focus(function(){
-            console.log('focus',$(this));
+        $('input').focus(function () {
+            console.log('focus', $(this));
         })
-        $('input').blur(function(){
+        $('input').blur(function () {
             console.log('blur');
         })
-        
-        $('input').change(function(){
-            console.log('change',$(this).val());
+
+        $('input').change(function () {
+            console.log('change', $(this).val());
         })
-       
+
     </script>
 </body>
 
