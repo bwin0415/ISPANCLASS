@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            transition: 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <button>Click</button>
+    <div class="box"></div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js">  //$=JQueey  </script>
+    <script>
+        console.log("width", $(".box").css('width'))
+        console.log("background-color", $(".box").css('background-color'))
+        console.log("background-color", $(".box").css('background-color') == 'rgb(127, 255, 212)')
+
+        console.log("background-color", $(".box").css('background'))
+        /* $("button").click(()=>{
+             if($(".box").css('background-color')=='rgb(127, 255, 212)'){
+                 //$(".box").css('background-color',"blue")
+                 var style={
+                     width:'500px',
+                     background:"green",
+                 };
+                 $(".box").css(style)
+             } 
+             else{
+                 var style={
+                     width:'200px',
+                     background:"rgb(127, 255, 212)",
+                 };
+                 $(".box").css(style)
+             }
+         })*/
+        $("button").click(() => {
+            $(".box").css("width", "+=100")
+        })
+
+
+    </script>
+</body>
+
+</html>
