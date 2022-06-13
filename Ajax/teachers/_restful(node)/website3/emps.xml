@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/css" href="emps.css"?>
+<!DOCTYPE emps [
+  <!ELEMENT emps (emp+)>
+  <!ELEMENT emp (empid,firstname,lastname)>
+  <!ELEMENT empid (#PCDATA)>
+  <!ELEMENT firstname (#PCDATA)>
+  <!ELEMENT lastname (#PCDATA)>
+]>
+<!--以上為prolog區段，以下為body區段 -->
+<emps>
+  <emp>
+    <empid>1</empid>
+    <firstname>Nancy</firstname>
+    <lastname>Davolio</lastname>    
+  </emp>
+  <emp>
+    <empid>2</empid>
+    <firstname>Andrew</firstname>
+    <lastname>Fuller</lastname>
+  </emp>
+  <emp>
+    <empid>3</empid>
+    <firstname>Janet</firstname>
+    <lastname>Leverling</lastname>
+  </emp>
+</emps>

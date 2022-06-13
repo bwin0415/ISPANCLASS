@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery提供的Ajax方法</title>
+    <link rel="icon" href="./favicon.ico" />
+    <link href="stylesheets/jquery-ui/base/jquery-ui.min.css" rel="stylesheet" />
+    <link href="stylesheets/myStyleSheet.css" rel="stylesheet" />
+    <style>
+        #p1 .form-wrapper {
+            width: 80%;
+            margin: 10px auto;
+        }
+
+        #p2 #headlines {
+            height: 250px;
+            overflow: auto;
+            background-color: rgba(110,138,195, 0.1);
+        }
+
+        #p3 ul {
+            width: 50%;
+            margin: auto;
+            text-align: left;
+        }
+    </style>
+    <script src="javascripts/jquery-3.6.0.min.js"></script>
+    <script src="javascripts/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#tabs").tabs();
+        });
+    </script>
+</head>
+<body>
+    <div id="tabs">
+        <ul>
+            <li><a href="#p1">$.get() 與 $.post()</a></li>
+            <li><a href="#p2">$(‘selectors’).load()</a></li>
+            <li><a href="#p3">$.getJSON()</a></li>
+            <li><a href="#p4">$.ajax()</a></li>
+        </ul>
+        <div id="p1">
+            <div class="main-box">
+                <h1 class="xx-large-font">Login</h1>
+                <div class="form-wrapper">
+                    <form method="get" action="_AjaxServer01.aspx" id="form1" class="table">
+                        <p class="table-row">
+                            <label for="username" class="table-cell right-align">使用者名稱</label>
+                            <input type="text" name="username" id="username" class="table-cell" value="小倩" />
+                        </p>
+                        <p class="table-row">
+                            <label for="password" class="table-cell right-align">密碼</label>
+                            <input type="text" name="password" id="password" class="table-cell" value="采臣" />
+                        </p>
+                        <p class="table-caption">
+                            <input type="submit" id="submit1" />
+                        </p>
+                    </form>
+                    <div class="message-box" id="div1"></div>
+                </div>
+                <script>
+                    $('#p1 #form1').submit(function () {
+
+                        $.get('_AjaxServer01.aspx', $(this).serialize(),
+                            function (data) {
+                                if (data == 'pass') {
+                                    $('#div1').html('<span>恭喜您! 您已通過了身分驗證...</span>');
+                                } else {
+                                    $('#div1').html('<span class="color-red">您的登入資訊不正確，請再試一次...<span>');
+                                }
+                            }
+                        );
+
+                        return false;
+                    });
+                </script>
+            </div>
+        </div>
+        <div id="p2">
+            <div class="main-box size-800x400">
+                <h1 class="xx-large-font">新 聞 頭 條</h1>
+                <ul id="newslinks" class="menubar">
+                    <li class="menu-item"><a href="data/today.html">Today&#8217;s News</a></li>
+                    <li class="menu-item"><a href="data/yesterday.html">Yesterday&#8217;s News</a></li>
+                    <li class="menu-item"><a href="data/lastweek.html">Last Week&#8217;s News</a></li>
+                </ul>
+                <div id="headlines"></div>
+                <script>
+                    $('#p2 #newslinks a').click(function () {
+                        var url = $(this).attr('href');
+                        $('#headlines').load(url + ' #newsItem');
+                        return false;
+                    });
+                </script>
+            </div>
+        </div>
+        <div id="p3">
+            <div class="main-box large-font large-padding">
+                <ul></ul>
+                <script>
+                    $.getJSON("data/Emp.json", function (data) {
+                        $.each(data, function (index, value) {
+                            $("#p3 ul").append(`<li>${index}:${value.EmpId} ${value.Name} ${value.Age}歲</li>`);
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+        <div id="p4">
+            <div class="main-box large-padding size-500x350 left-align">
+                <div id="header">
+                    <div id="logo">
+                        <a href="#">
+                            <img src="images/greefies/logo.gif" />
+                        </a>
+                    </div>
+                </div>
+                <form method="post" action="_UploadServer.aspx" enctype="multipart/form-data"
+                      id="form2" class="main-form">
+                    <div class="form-group">
+                        <label for="username">使用者名稱</label>
+                        <input class="form-control" type="text" name="username"
+                               id="username" placeholder="請輸入使用者名稱" value="采臣" />
+                    </div>
+                    <div class="form-group">
+                        <label for="upload">上傳照片</label>
+                        <input class="form-control upload" type="file"
+                               name="upload" id="upload" accept="image/*" />
+                        <div class="preview" id="preview">
+                            <div class="table">
+                                <div class="td"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="送出" /> <div id="msg1" class="message-box inline"></div>
+                    </div>
+                </form>
+                <div id="footer">
+                    <div>
+                        <a href="#">
+                            <img src="images/greefies/footer_logo.gif" />
+                        </a>
+                    </div>
+                </div>
+                <script>
+                    //預覽上傳照片(時機：選檔變更事件)
+                    $("#upload").change(function () {
+                        $("#preview .table .td").html("");//先清除前次預覽的<img>
+                        previewImg(this.files);
+                    });
+                    function previewImg(files) {
+                        if (files.length == 0)
+                            return;
+                        var file = files[0];
+                        var fr = new FileReader();
+                        //註冊：選檔被讀取完成後之事件處理器
+                        fr.onload =
+                            function () {
+                                var img = $("<img>").attr({ src: fr.result });
+                                /*  fr.result: The file's contents. 內容如下:
+                                data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA ...
+                                */
+                                $("#preview .table .td").html(img);
+                            };
+                        fr.readAsDataURL(file);
+                    }
+                    //使用Ajax模式上傳檔案
+                    $("#form2").submit(function () {
+
+                        var formData = new FormData(this) //只適用於post方法
+                        $.ajax({
+                            //async: true,
+                            method: 'post',
+                            url: $(this).attr('action'),
+                            data: formData,
+                            //contentType: 預設'application/x-www-form-urlencoded; charset=UTF-8',
+                            contentType: false, //required for「formData = new FormData(this)」
+                            processData: false, //required for「formData = new FormData(this)」
+                            beforeSend: function () {
+                                var ans = confirm("您確定要上傳檔案嗎？");
+                                if (ans)
+                                    return true;
+                                else
+                                    return false;
+                            },
+                            success: function (data) {
+                                $("#msg1").html(data);
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                $('#msg1').html(`<span class="color-red">textStatus=${textStatus} errorThrown=${errorThrown}<span>`);
+                            },
+                            complete: function () {
+                                setTimeout("$('#msg1').html('')", 2000);
+                            }
+                        });
+
+                        return false;
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

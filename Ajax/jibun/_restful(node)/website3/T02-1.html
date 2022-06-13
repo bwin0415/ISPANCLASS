@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>RESTful API 實作</title>
+    <link rel="icon" href="./favicon.ico" />
+    <link href="stylesheets/jquery-ui/base/jquery-ui.min.css" rel="stylesheet" />
+    <link href="stylesheets/myStyleSheet.css" rel="stylesheet" />   
+    <script src="javascripts/jquery-3.6.0.min.js"></script>
+    <script src="javascripts/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#tabs").tabs();
+        });
+    </script>
+</head>
+<body>
+    <div id="tabs">
+        <ul>
+            <li><a href="#p1">CRUD操作(用戶端)+CRUD服務與CORS機制處理(伺服端)</a></li>                      
+        </ul>
+        <div id="p1">
+            <div class="main-box large-padding size-500x500 left-align">
+
+                <form id="form1" class="main-form">
+                    <div class="form-group">
+                        <label for="text1-1">查詢</label>
+                        <input class="form-control" type="text" id="text1-1" title="GET"
+                               value="http://localhost:1337/api/employees/3" />
+                    </div>
+                    <div class="form-group">
+                        <label for="text1-2">新增</label>
+                        <textarea class="form-control height-80px" id="text1-2" title="POST">http://localhost:1337/api/employees/?employeeid=10&firstname=kitty&lastname=hello&title=mgr&birthdate=1998-10-20&hiredate=2020-04-30&address=null&city=kaohsiung</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="text1-3">修改</label>
+                        <textarea class="form-control height-80px" id="text1-3" title="PUT">http://localhost:1337/api/employees/3?firstname=mary&lastname=hello&title=mgr&birthdate=1999-10-20&hiredate=2020-04-30&address=中正四路211號&city=高雄</textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="送出" />
+                    </div>
+                </form>
+                <div id="msg1" class="message-box"></div>
+                <script>                    
+                    var httpMethod,resourceUrl;
+                    //動態變更httpMethod,resourceUrl之值
+                    $("#p1 :text, #p1 textarea").on("focus input", function () {
+                        httpMethod = $(this).attr("title");
+                        resourceUrl = $(this).val();                        
+                    });
+                    $("#p1 :text:first").focus();
+
+                    $("#form1").submit(function () {                        
+                        $.ajax({
+                            method: httpMethod,
+                            url: resourceUrl,
+                            dataType:"json",                            
+                            success: function (data) {                                
+                                $("#msg1").html(JSON.stringify(data));
+                                //查詢/api/employees/3後 data如: {"員工編號":"3","名字":"Janet","姓氏":"Leverling","職稱":"Sales Representative","生日":"1963-08-30","到職日":"1992-04-01","地址-街道":"722 Moss Bay Blvd.","地址-市鎮":"Kirkland"}
+                                //新增/api/employees/後  data如: {"insert-status": "success"}
+                                //修改/api/employees/3後 data如  {"update-status": "success"}
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                $("#msg1").html(`<span class="color-red">textStatus=${textStatus}; errorThrown=${errorThrown}</span>`);
+                            }
+                        });
+                        return false;
+                    });
+                </script>                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

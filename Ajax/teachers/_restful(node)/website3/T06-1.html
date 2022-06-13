@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Async function</title>
+    <link rel="icon" href="./favicon.ico" />
+    <link href="stylesheets/jquery-ui/base/jquery-ui.min.css" rel="stylesheet" />
+    <link href="stylesheets/myStyleSheet.css" rel="stylesheet" />
+    <script src="javascripts/jquery-3.6.0.min.js"></script>
+    <script src="javascripts/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#tabs").tabs();
+        });
+    </script>
+</head>
+<body>
+    <div id="tabs">
+        <ul>
+            <li><a href="#p1">Async function</a></li>
+            <li><a href="#p2">Async function expression</a></li>
+        </ul>       
+        <div id="p1">
+            <div class="main-box large-padding">
+                <p>
+                    <a id="a1" href="#" class="a-button">測試Async Function...</a>
+                </p>
+                <div class="message-box height-60percent" id="div1"></div>
+                <script>
+                    function sendAjaxRequest(url, username, password) {
+                        return new Promise(
+                            function (resolve, reject) { //executor
+                                //非同步操作
+                                $.ajax({
+                                    method: 'get',
+                                    url: url,
+                                    data: { username, password },
+                                    success: function (data) {
+                                        resolve(data);
+                                    },
+                                    error: function (jqXHR, textStatus, errorThrown) {
+                                        reject(`${textStatus} - ${errorThrown}`);
+                                    }
+                                });
+                            });
+                    }
+                    async function myAsyncFunc() {
+                        try {
+                            var result = await sendAjaxRequest("_AjaxServer02.aspx", "hello", "kitty");
+                            $("#div1").append(`<div>1.${result}</div>`);
+
+                            result = await sendAjaxRequest("data/Emp.json");
+                            $("#div1").append(`<div>2.${JSON.stringify(result)}</div>`);
+                        }
+                        catch (err) {
+                            $("#div1").append(`<div style="color:red">${err}</div>`);
+                        }
+                        return "3.我的非同步工作全部完成了...";
+                    }
+
+                    $("#a1").click(function () {
+
+                        myAsyncFunc()
+                            .then(function (data) {
+                                $("#div1").append(`<div>${data}</div>`);
+                            });                      
+
+                        return false;
+                    });
+                </script>
+            </div>
+        </div>
+        <div id="p2">
+            <div class="main-box large-padding">
+                <p>
+                    <a id="a2" href="#" class="a-button">測試Async function expression...</a>
+                </p>
+                <div class="message-box height-60percent" id="div2"></div>
+                <script>
+                    $("#a2").click(function () {
+                        
+                        (async function () {
+                            try {
+                                var result = await sendAjaxRequest("_AjaxServer02.aspx", "hello", "kitty");
+                                $("#div2").append(`<div>1.${result}</div>`);
+
+                                result = await sendAjaxRequest("data/Emp.json");
+                                $("#div2").append(`<div>2.${JSON.stringify(result)}</div>`);
+                            }
+                            catch (err) {
+                                $("#div2").append(`<div style="color:red">${err}</div>`);
+                            }
+                            return "3.我的非同步工作全部完成了...";
+                        })()
+                            .then(function (data) {
+                                $("#div2").append(`<div>${data}</div>`);
+                            });
+
+                        return false;
+                    });
+
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

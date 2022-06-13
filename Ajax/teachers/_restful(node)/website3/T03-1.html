@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>使用XMLHttpRequest物件實作AJAX技術</title>
+    <link rel="icon" href="./favicon.ico" />
+    <link href="stylesheets/jquery-ui/base/jquery-ui.min.css" rel="stylesheet" />
+    <link href="stylesheets/myStyleSheet.css" rel="stylesheet" />
+    <style>
+    </style>
+    <script src="javascripts/jquery-3.6.0.min.js"></script>
+    <script src="javascripts/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#tabs").tabs();
+        });
+    </script>
+</head>
+<body>
+    <div id="tabs">
+        <ul>
+            <li><a href="#p1">使用XMLHttpRequest發送同步的請求</a></li>
+            <li><a href="#p2">使用XMLHttpRequest發送非同步的GET請求</a></li>
+            <li><a href="#p3">使用XMLHttpRequest發送非同步的POST請求</a></li>
+        </ul>
+        <div id="p1">
+            <div class="main-box large-padding">
+                <p>
+                    <a id="a1" href="data/Emp.json" class="a-button">測試 XMLHttpRequest 同步GET...</a>
+                </p>
+                <div class="message-box color-444 height-60percent" id="div1"></div>
+                <script>
+                    $("#a1").click(function () {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("get", "data/Emp.json", false); //false表示同步請求。
+                        xhr.send(null);
+                        if (xhr.status === 200) //The HTTP status is 200(ok)
+                            $("#div1").html(`來自伺服器的回應:<br/> ${xhr.responseText}`);
+                        else
+                            $("#div1").html(`<span class="color-red">來自伺服器的回應:${xhr.statusText}</span>`);
+
+                        return false;
+                    });
+                </script>
+            </div>
+        </div>
+        <div id="p2">
+            <div class="main-box large-padding">
+                <p>
+                    <a id="a2" href="data/Emp.json" class="a-button">測試 XMLHttpRequest 非同步GET...</a>
+                </p>
+                <div class="message-box color-444 height-60percent" id="div2"></div>
+                <script>
+                    $("#a2").click(function () {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("get", "data/Emp.json", true); //true表示非同步請求。
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState === 4) { //The operation is complete.
+                                if (xhr.status === 200) {//The HTTP status is 200(ok)
+                                    $("#div2").html(`來自伺服器的回應:<br/> ${xhr.responseText}`);
+                                } else {
+                                    $("#div2").html(`<span class="color-red">來自伺服器的回應:${xhr.statusText}</span>`);
+                                }
+                            }
+                        };
+                        xhr.send(null);
+
+                        return false;
+                    });
+                </script>
+            </div>
+        </div>
+        <div id="p3">
+            <div class="main-box large-padding size-500x350 left-align">
+                <div id="header">
+                    <div id="logo">
+                        <a href="#">
+                            <img src="images/greefies/logo.gif" />
+                        </a>
+                    </div>
+                </div>
+                <form id="form1" class="main-form">
+                    <div class="form-group">
+                        <label for="username">使用者名稱</label>
+                        <input class="form-control" type="text" name="username" value="小倩"
+                               id="username" placeholder="請輸入使用者名稱" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">密碼</label>
+                        <input class="form-control" type="password" name="password" value="采臣"
+                               id="password" placeholder="請輸入密碼" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="送出" /> <div id="msg1" class="message-box inline"></div>
+                    </div>
+                </form>
+                <div id="footer">
+                    <div>
+                        <a href="#">
+                            <img src="images/greefies/footer_logo.gif" />
+                        </a>
+                    </div>
+                </div>
+                <script>
+                    $("#form1").submit(function () {
+
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("post", "_AjaxServer01.aspx", true); //true表示非同步請求。
+                        xhr.onload = function () {//The transaction completes successfully
+                            if (xhr.status === 200) {
+                                if (xhr.responseText == 'pass')
+                                    $("#msg1").html(`<span>您已通過驗證!</span>`);
+                                else
+                                    $("#msg1").html(`<span class="color-red">您未通過驗證!</span>`);
+                            } else {
+                                $("#msg1").html(`<span class="color-red">${xhr.statusText}</span>`);
+                            }
+                        };
+                        //準備表單資料
+                        //方法一
+                        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8") //預設Content-Type: text/plain;charset=UTF-8
+                        var formData = $(this).serialize(); //formData如: username=%E5%B0%8F%E5%80%A9&password=%E9%87%87%E8%87%A3
+                        //方法二
+                        //var formData = new FormData(this); //此招勿設定Content-Type標頭
+                        xhr.send(formData);
+
+                        return false;
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

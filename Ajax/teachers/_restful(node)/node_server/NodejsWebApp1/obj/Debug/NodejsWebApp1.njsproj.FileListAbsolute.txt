@@ -1,0 +1,18 @@
+C:\_restful\node_server\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsprojAssemblyReference.cache
+C:\_restful\node_server\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsproj.CoreCompileInputs.cache
+C:\_restful\node_server\NodejsWebApp1\bin\Microsoft.NodejsTools.WebRole.dll
+C:\_restful-server\node_server\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsprojAssemblyReference.cache
+C:\_restful-server\node_server\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsproj.CoreCompileInputs.cache
+C:\_restful-server\node_server\NodejsWebApp1\bin\Microsoft.NodejsTools.WebRole.dll
+C:\_restful(全端)\node_server\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsproj.AssemblyReference.cache
+C:\_restful(全端)\node_server\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsproj.CoreCompileInputs.cache
+C:\_restful(全端)\node_server\NodejsWebApp1\bin\Microsoft.NodejsTools.WebRole.dll
+C:\_restful(全端) new\node_server\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsproj.AssemblyReference.cache
+C:\_restful(全端) new\node_server\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsproj.CoreCompileInputs.cache
+C:\_restful(全端) new\node_server\NodejsWebApp1\bin\Microsoft.NodejsTools.WebRole.dll
+C:\_restful(full-ends)\node_server\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsproj.AssemblyReference.cache
+C:\_restful(full-ends)\node_server\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsproj.CoreCompileInputs.cache
+C:\_restful(full-ends)\node_server\NodejsWebApp1\bin\Microsoft.NodejsTools.WebRole.dll
+C:\_restful(node)\node_server\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsproj.AssemblyReference.cache
+C:\_restful(node)\node_server\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsproj.CoreCompileInputs.cache
+C:\_restful(node)\node_server\NodejsWebApp1\bin\Microsoft.NodejsTools.WebRole.dll
