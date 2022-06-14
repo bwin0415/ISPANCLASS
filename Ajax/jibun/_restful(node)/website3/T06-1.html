@@ -34,6 +34,7 @@
                                     method: 'get',
                                     url: url,
                                     data: { username, password },
+                                    dataType:"json", //直接資料分析轉成物件 //預設值：聰明的猜測(看response's content-type:application/json)
                                     success: function (data) {
                                         resolve(data);
                                     },
@@ -48,7 +49,7 @@
                             var result = await sendAjaxRequest("_AjaxServer02.aspx", "hello", "kitty");
                             $("#div1").append(`<div>1.${result}</div>`);
 
-                            result = await sendAjaxRequest("data/Emp.json");
+                            result = await sendAjaxRequest("data/Emp.json");//{"status":pass}
                             $("#div1").append(`<div>2.${JSON.stringify(result)}</div>`);
                         }
                         catch (err) {

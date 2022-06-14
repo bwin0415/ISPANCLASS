@@ -31,6 +31,17 @@
 
     <script src="javascripts/jquery-3.6.0.min.js"></script>
     <script>
+
+        let str = '{"name":"kitty"}';
+        try {
+            let obj = JSON.parse(str);
+            throw new error("例外發生了")
+            alert(obj.name);
+        } catch (e) {
+            alert(e);//類別:訊息
+            alert(e.message);//訊息
+        }
+        
         //json格式不能註解
         $(() => {
             //以promise送ajax請求
@@ -49,11 +60,31 @@
                     })
                 })
                     .then((data) => {
-                        alert(data);
-                    }, (errReason) => {
+                        alert('1' + data);
+                        //return new Promise((res, rej) => {
+                        //    setTimeout(() => {
+                        //        /*res('Times up');//解決*/
+                        //        rej('Overtime')//拒絕
+                        //    }, 1000)
+                        //})
+                        throw "我拋出了一個例外物件"
+                        /*1.return value(100)-->then回傳promise 就被解決了(解決值=100)
+                          2.return undefined-->then回傳promise 就被解決了(解決值=undefined)
+                          3.return a Promise(解決)-->then回傳promise 就被解決了(解決值='Times up')
+                          4.return a Promise(被拒絕)-->then回傳promise 就被拒絕了(拒絕值='Over time')
+                          5.throw exception (捕捉錯誤)-->拋出一個例外物件
+                         */
+
+                    })
+                    //},(errReason) => {
+                    //    alert(errReason);
+                    //})
+                    .then((value) => {
+                        alert('2' + value);
+                    })
+                    .catch((errReason) => {
                         alert(errReason);
                     })
-
             })
 
             $("button:eq(1)").click((e) => {
