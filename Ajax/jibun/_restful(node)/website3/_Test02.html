@@ -18,6 +18,14 @@
     <div id="div2">
 
     </div>
+    <div id="news">
+        <a href="data/today.html">今天頭條</a>
+        <a href="data/yesterday.html">昨天頭條</a>
+        <a href="data/lastweek.html">上週頭條</a>
+        <div>
+
+        </div>
+    </div>
     <script src="javascripts/jquery-3.6.0.min.js"></script>
     <script>
 
@@ -51,6 +59,11 @@
         //}
         //網頁ready了
         $(() => {
+            $('#news a').click(function () {
+                $('#news div:first').load($(this).attr('href') + '#newsItem')
+                return false
+            })
+
             /* g()*/
 
             (async function () {
@@ -80,12 +93,14 @@
                 fetch("data/Emp.json")
                     .then((response) => { return response.json() })
                     .then(function (emps) {
-                       
+
                         emps.forEach((v, i) => {
                             $("#div2").append(`<div>${v.EmpId} ${v.Name} ${v.Age}歲</div>`)
                         })
                     })
             })
+
+
 
 
 

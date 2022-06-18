@@ -16,3 +16,6 @@ C:\_restful(full-ends)\node_server\NodejsWebApp1\bin\Microsoft.NodejsTools.WebRo
 C:\_restful(node)\node_server\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsproj.AssemblyReference.cache
 C:\_restful(node)\node_server\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsproj.CoreCompileInputs.cache
 C:\_restful(node)\node_server\NodejsWebApp1\bin\Microsoft.NodejsTools.WebRole.dll
+C:\Users\Student\Desktop\ISPAN\ISPANCLASS\Ajax\jibun\_restful(node)\node_server\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsproj.AssemblyReference.cache
+C:\Users\Student\Desktop\ISPAN\ISPANCLASS\Ajax\jibun\_restful(node)\node_server\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsproj.CoreCompileInputs.cache
+C:\Users\Student\Desktop\ISPAN\ISPANCLASS\Ajax\jibun\_restful(node)\node_server\NodejsWebApp1\bin\Microsoft.NodejsTools.WebRole.dll

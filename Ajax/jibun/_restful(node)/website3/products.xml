@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/css" href="products.css"?>
+<products>
+  <product>
+    <productid>100</productid>
+    <productname>QQ</productname>
+    <productprice>70</productprice>
+    <productunitstock>99</productunitstock>
+  </product>
+  <product>
+    <productid>100</productid>
+    <productname>QAQ</productname>
+    <productprice>70</productprice>
+    <productunitstock>99</productunitstock>
+  </product>
+  <product>
+    <productid>100</productid>
+    <productname>Q///Q</productname>
+    <productprice>70</productprice>
+    <productunitstock>99</productunitstock>
+  </product>
+</products>

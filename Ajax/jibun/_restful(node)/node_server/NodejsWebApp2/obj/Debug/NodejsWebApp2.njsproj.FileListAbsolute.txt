@@ -1,0 +1,3 @@
+C:\Users\Student\Desktop\ISPAN\ISPANCLASS\Ajax\jibun\_restful(node)\node_server\NodejsWebApp2\obj\Debug\NodejsWebApp2.njsproj.AssemblyReference.cache
+C:\Users\Student\Desktop\ISPAN\ISPANCLASS\Ajax\jibun\_restful(node)\node_server\NodejsWebApp2\obj\Debug\NodejsWebApp2.njsproj.CoreCompileInputs.cache
+C:\Users\Student\Desktop\ISPAN\ISPANCLASS\Ajax\jibun\_restful(node)\node_server\NodejsWebApp2\bin\Microsoft.NodejsTools.WebRole.dll
