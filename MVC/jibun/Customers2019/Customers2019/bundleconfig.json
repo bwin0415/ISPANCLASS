@@ -1,0 +1,8 @@
+[
+  {
+    "outputFileName": "wwwroot/js/freezeHeader.min.js",
+    "inputFiles": [
+      "wwwroot/js/freezeHeader.js"
+    ]
+  }
+]
