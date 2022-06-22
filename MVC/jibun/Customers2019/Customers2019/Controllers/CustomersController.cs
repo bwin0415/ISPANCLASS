@@ -23,7 +23,9 @@ namespace Customers2019.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {//能不傳集合就不傳
-            return View(_context.Customers);
+            var query= _context.Customers.Select(c => c.Country).Distinct().ToArray();
+            ViewBag.Country = new SelectList(query);
+            return  View(_context.Customers);
         }
 
         // GET: Customers/Details/5
@@ -45,7 +47,7 @@ namespace Customers2019.Controllers
         }
 
         // GET: Customers/Create 生畫面
-        public IActionResult Create()
+        public IActionResult Create()//IActionResult傳回HTML
         {
             return View();//空白畫面
         }
@@ -55,6 +57,7 @@ namespace Customers2019.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        //非同步
         public async Task<IActionResult> Create([Bind("CustomerId,CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,Fax")] Customers customers)//Bind 只收有列
         {
             if (ModelState.IsValid)//驗證模型
@@ -150,5 +153,8 @@ namespace Customers2019.Controllers
         {
             return _context.Customers.Any(e => e.CustomerId == CustomerId);
         }
+        //FileResult傳回檔案 
+        //JsonResult傳回Json文件
+        //RedirectionToActionResult 傳回Redirect結果
     }
 }

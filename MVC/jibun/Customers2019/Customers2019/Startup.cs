@@ -36,6 +36,14 @@ namespace Customers2019
                     Configuration.GetConnectionString("Northwind")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".Customer2019.Session";
+                options.IdleTimeout = TimeSpan.FromMinutes(6);
+                options.Cookie.IsEssential = true;
+                options.Cookie.HttpOnly = true;
+            });
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -62,6 +70,7 @@ namespace Customers2019
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

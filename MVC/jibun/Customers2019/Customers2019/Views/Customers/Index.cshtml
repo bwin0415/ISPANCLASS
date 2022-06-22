@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<Customers2019.Models.Customers>
-
 @*可列舉的陣列*@
 
 @{
@@ -9,6 +8,8 @@
 
 <h1>Index</h1>
 @section Styles{
+
+
     <style>
         thead {
             background-color: #830707;
@@ -17,8 +18,12 @@
     </style>
 }
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary"><i class="fa-brands fa-angrycreative"></i> Create New</a>
 </p>
+國家：
+<select asp-items="@ViewBag.Country">
+</select>
+
 <table id="CustomersTable" style="width:100%">
     <thead>
         <tr>
@@ -90,9 +95,9 @@
                     @Html.DisplayFor(modelItem => item.Fax)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-CustomerId="@item.CustomerId">Edit</a> |
-                    <a asp-action="Details" asp-route-CustomerId="@item.CustomerId">Details</a> |
-                    <a asp-action="Delete" asp-route-CustomerId="@item.CustomerId">Delete</a>
+                    <a asp-action="Edit" asp-route-CustomerId="@item.CustomerId" asp-controller="Customers">Edit</a> |
+                    <a asp-action="Details" asp-route-CustomerId="@item.CustomerId" asp-controller="Customers">Details</a> |
+                    <a asp-action="Delete" asp-route-CustomerId="@item.CustomerId" asp-controller="Customers">Delete</a>
                 </td>
             </tr>
         }
