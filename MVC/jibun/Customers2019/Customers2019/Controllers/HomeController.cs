@@ -24,12 +24,20 @@ namespace Customers2019.Controllers
 
         string SesionKey = "SesionKey";
         string CacheKey = "CacheKey";
+        string CookieKey = "CookieKey";
+
         public IActionResult Index()
         {
             HttpContext.Session.SetString(SesionKey, "SessionValue");
             MemoryCacheEntryOptions CacheOptions = new MemoryCacheEntryOptions();
             CacheOptions.SetSlidingExpiration(TimeSpan.FromSeconds(60)); //SetPriority優先順序
             _cache.Set(CacheKey, "CacheValue", CacheOptions);
+            CookieOptions options = new CookieOptions();
+            options.Expires = DateTime.Now.AddYears(1);
+            options.HttpOnly = true;//一定要加
+            options.Secure = true;//一定要加
+            Response.Cookies.Append(CookieKey,"CookieValue",options);
+
             return View();
         }
 
@@ -43,6 +51,7 @@ namespace Customers2019.Controllers
             {
                 string CacheValue = Convert.ToString(CacheData);
             }
+            string CookieValue =HttpContext.Request.Cookies[CookieKey];//Null
             return View();
         }
         public IActionResult Contact()

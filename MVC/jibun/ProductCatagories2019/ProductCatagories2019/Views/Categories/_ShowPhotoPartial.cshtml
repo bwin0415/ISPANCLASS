@@ -1,0 +1,13 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model ProductCatagories2019.Models.Categories
+@if (Model.Picture != null)
+{
+    <img style="width:320px;height:240px" src="@Url.Action("ShowPhoto","Categories",new { id=Model.CategoryId})"
+         title="@Html.DisplayFor(model=>model.CategoryName)" />
+}
+else
+{
+    <img style="width:320px;height:240px" src="@Url.Content("https://www.ihecj.jp/wp-content/uploads/2018/01/noimg.png")" title="找無圖片" />
+}
