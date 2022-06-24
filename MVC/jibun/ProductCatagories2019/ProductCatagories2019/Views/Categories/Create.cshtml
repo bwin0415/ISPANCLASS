@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="CategoryName" class="control-label"></label>
@@ -24,11 +24,16 @@
             </div>
             <div class="form-group">
                 <label asp-for="Picture" class="control-label"></label>
-                <input asp-for="Picture" class="form-control" />
-                <span asp-validation-for="Picture" class="text-danger"></span>
+                <img id="imgPreview" style="width:320px;height:240px" src="@Url.Content("https://www.ihecj.jp/wp-content/uploads/2018/01/noimg.png")" title="找無圖片" />
+                <input id="File1" type="file" name="File1" accept="image/*" />
+                @*1.上傳server一定要有name
+        2.accept="image/*" 預設篩選 *接受所有格式
+                *@
             </div>
             <div class="form-group">
+
                 <input type="submit" value="Create" class="btn btn-primary" />
+
             </div>
         </form>
     </div>
@@ -39,5 +44,10 @@
 </div>
 
 @section Scripts {
+
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script src="~/js/site.min.js" asp-append-version="true"></script>
+<script>
+    $("#File1").change(function () { readURL(this, $("#imgPreview")) })
+</script>
 }

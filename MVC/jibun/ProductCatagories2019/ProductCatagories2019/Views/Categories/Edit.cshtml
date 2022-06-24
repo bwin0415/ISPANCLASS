@@ -26,10 +26,10 @@
             <div class="form-group">
                 <label asp-for="Picture" class="control-label"></label>
                 <partial name="_ShowPhotoPartial" />
-                <input id="File1" type="file" name="File1" accept="image/*"/>
+                <input id="File1" type="file" name="File1" accept="image/*" />
                 @*1.上傳server一定要有name
-                  2.accept="image/*" 預設篩選 *接受所有格式
-                    *@
+                    2.accept="image/*" 預設篩選 *接受所有格式
+                *@
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -44,4 +44,11 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script src="~/js/site.min.js" asp-append-version="true"></script>
+
+    <script>
+        $("#File1").change(function () { readURL(this, $("#File1").prev()) })
+    </script>
+
 }

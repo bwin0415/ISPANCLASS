@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -54,15 +55,30 @@ namespace ProductCatagories2019.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [RequestFormLimits(MultipartBodyLengthLimit = 2048000)]
         public async Task<IActionResult> Create([Bind("CategoryId,CategoryName,Description,Picture")] Categories categories)
         {
             if (ModelState.IsValid)
             {
+                SetPicture(categories);
                 _context.Add(categories);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(categories);
+        }
+
+        private void SetPicture(Categories categories)
+        {
+            if (Request.Form.Files["File1"] != null)
+            {
+                byte[] data = null;
+                using (BinaryReader br = new BinaryReader(Request.Form.Files["File1"].OpenReadStream()))
+                {
+                    data = br.ReadBytes((int)Request.Form.Files["File1"].Length);
+                    categories.Picture = data;
+                }
+            }
         }
 
         // GET: Categories/Edit/5
@@ -86,6 +102,7 @@ namespace ProductCatagories2019.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [RequestFormLimits(MultipartBodyLengthLimit =2048000)]
         public async Task<IActionResult> Edit(int id, [Bind("CategoryId,CategoryName,Description,Picture")] Categories categories)
         {
             if (id != categories.CategoryId)
@@ -97,6 +114,7 @@ namespace ProductCatagories2019.Controllers
             {
                 try
                 {
+                    SetPicture(categories);
                     _context.Update(categories);
                     await _context.SaveChangesAsync();
                 }
