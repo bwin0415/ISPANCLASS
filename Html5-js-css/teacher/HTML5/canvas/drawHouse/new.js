@@ -4,8 +4,19 @@ function doFirst(){
     
     canvas.width = 400
     canvas.height = 400
-        
+    
+    theClock = 0;
+    // drawHouse()
+    setInterval(drawHouse,30)
+
+    function drawHouse(){
+        theClock++
+
+        // 橡皮擦
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
         // 格線開始
+        context.beginPath();
         for(let i = 0; i < 100; i++){
             let interval = i * 50
             // 水平
@@ -126,7 +137,6 @@ function doFirst(){
         context.fill();
         context.stroke();
 
-
         //右邊屋頂
         context.beginPath();
         context.moveTo(200,175);
@@ -139,7 +149,28 @@ function doFirst(){
         context.fill();
         context.stroke();
 
-  
+        // 車子
+        context.fillStyle='#fff';
+        
+        // let carX = theClock % 400;               // 0 ~ 399
+        // let carX = (theClock % 400) - 40;        // -40 ~ 349
+        let carX = (theClock % (400 + 40)) - 40;    // -40 ~ 399
+        context.fillRect(carX, 325, 40, 25);
+        context.strokeRect(carX, 325, 40, 25);
+        context.beginPath();
+        context.arc(carX+10, 350, 5, 0, 2 * Math.PI);
+        context.arc(carX+30, 350, 5, 0, 2 * Math.PI);
+
+        // context.fillRect(25, 325, 40, 25);
+        // context.strokeRect(25, 325, 40, 25);
+        // context.beginPath();
+        // context.arc(25+10, 350, 5, 0, 2 * Math.PI);
+        // context.arc(25+30, 350, 5, 0, 2 * Math.PI);
+
+        context.fillStyle='#333';
+        context.fill();
+        context.stroke();
+    }  
   
 }
 window.addEventListener('load',doFirst);

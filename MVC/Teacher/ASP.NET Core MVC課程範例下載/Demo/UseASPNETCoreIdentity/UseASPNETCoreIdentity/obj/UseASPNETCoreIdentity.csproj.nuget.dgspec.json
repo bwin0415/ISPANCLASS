@@ -1,28 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "E:\\ASP.NET\\ASP.NET Core\\Demo\\UseASPNETCoreIdentity\\UseASPNETCoreIdentity\\UseASPNETCoreIdentity.csproj": {}
+    "C:\\Users\\Student\\Desktop\\ISPAN\\ISPANCLASS\\MVC\\Teacher\\ASP.NET Core MVC課程範例下載\\Demo\\UseASPNETCoreIdentity\\UseASPNETCoreIdentity\\UseASPNETCoreIdentity.csproj": {}
   },
   "projects": {
-    "E:\\ASP.NET\\ASP.NET Core\\Demo\\UseASPNETCoreIdentity\\UseASPNETCoreIdentity\\UseASPNETCoreIdentity.csproj": {
+    "C:\\Users\\Student\\Desktop\\ISPAN\\ISPANCLASS\\MVC\\Teacher\\ASP.NET Core MVC課程範例下載\\Demo\\UseASPNETCoreIdentity\\UseASPNETCoreIdentity\\UseASPNETCoreIdentity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\ASP.NET\\ASP.NET Core\\Demo\\UseASPNETCoreIdentity\\UseASPNETCoreIdentity\\UseASPNETCoreIdentity.csproj",
+        "projectUniqueName": "C:\\Users\\Student\\Desktop\\ISPAN\\ISPANCLASS\\MVC\\Teacher\\ASP.NET Core MVC課程範例下載\\Demo\\UseASPNETCoreIdentity\\UseASPNETCoreIdentity\\UseASPNETCoreIdentity.csproj",
         "projectName": "UseASPNETCoreIdentity",
-        "projectPath": "E:\\ASP.NET\\ASP.NET Core\\Demo\\UseASPNETCoreIdentity\\UseASPNETCoreIdentity\\UseASPNETCoreIdentity.csproj",
-        "packagesPath": "C:\\Users\\Craig\\.nuget\\packages\\",
-        "outputPath": "E:\\ASP.NET\\ASP.NET Core\\Demo\\UseASPNETCoreIdentity\\UseASPNETCoreIdentity\\obj\\",
+        "projectPath": "C:\\Users\\Student\\Desktop\\ISPAN\\ISPANCLASS\\MVC\\Teacher\\ASP.NET Core MVC課程範例下載\\Demo\\UseASPNETCoreIdentity\\UseASPNETCoreIdentity\\UseASPNETCoreIdentity.csproj",
+        "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Student\\Desktop\\ISPAN\\ISPANCLASS\\MVC\\Teacher\\ASP.NET Core MVC課程範例下載\\Demo\\UseASPNETCoreIdentity\\UseASPNETCoreIdentity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Craig\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -90,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

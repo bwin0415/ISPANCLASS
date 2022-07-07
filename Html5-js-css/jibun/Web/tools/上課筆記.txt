@@ -79,3 +79,7 @@ HTML自訂屬性  是加-號隔開 data-*
 找img.src=html標籤本身的屬性
 某物件.style.color='red'
 
+==========================================================
+context.arc(x,y,r,起始弧線,結束,順/逆)預設值為順 右邊起始值
+Math.random() 介於0含~1不含的數 0~0.999...
+公式:parseInt(Math.random()*MaxN(總個數))+取的最小值
