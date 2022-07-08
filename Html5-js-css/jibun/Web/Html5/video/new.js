@@ -8,6 +8,7 @@ function doFirst() {
     progress = document.getElementById("progress");
     //再建事件聆聽功能
     playButton.addEventListener('click', playOrPause)
+    myMovie.addEventListener('click', playOrPause)
     defaultBar.addEventListener('click', clickedBar)
 
 
@@ -42,7 +43,7 @@ function update() {
 function clickedBar(e) {
     let mouseX = e.pageX - defaultBar.offsetLeft
     progress.style.width = `${mouseX}px`
-    let newTime=mouseX/ (barsize / myMovie.duration)
-    myMovie.currentTime=newTime
+    let newTime = mouseX / (barsize / myMovie.duration)
+    myMovie.currentTime = newTime
 }
 window.addEventListener('load', doFirst)
