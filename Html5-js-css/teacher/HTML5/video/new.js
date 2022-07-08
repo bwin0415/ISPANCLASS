@@ -10,8 +10,9 @@ function doFirst() {
     // alert(barsize)
 
     // 再建事件聆聽功能
-    playButton.addEventListener('click',playOrPause)
-    defaultBar.addEventListener('click',clickedBar)
+    playButton.addEventListener('click', playOrPause)
+    myMovie.addEventListener('click', playOrPause)
+    defaultBar.addEventListener('click', clickedBar)
 
     // 全螢幕
     // document.getElementById('fullButton').addEventListener('click',function(){

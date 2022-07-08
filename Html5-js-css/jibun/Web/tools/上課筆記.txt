@@ -83,3 +83,36 @@ HTML自訂屬性  是加-號隔開 data-*
 context.arc(x,y,r,起始弧線,結束,順/逆)預設值為順 右邊起始值
 Math.random() 介於0含~1不含的數 0~0.999...
 公式:parseInt(Math.random()*MaxN(總個數))+取的最小值
+
+尋找物件
+1.直接找 document.firstChild(html).lastChild(body).firstChild(div)
+2.捷徑 getElementById,getElementsByName(),getElementsByTagName(),getElementsByClassName(),querySelector(),querySelectorAll()
+3.新增物件
+        (1.)先建標籤
+        let image = document.createElement("img")
+        (2.)將該標籤的屬性和方法先寫好
+        attr(屬性)
+        image.src=""
+        image.width="300"
+        image.style.width="300px"<==prop
+        image.addEventListener("click",function(){
+
+        })
+        (3.) 找到parent ,加進去
+        找parent.appendChild(image)
+        找parent.insertBefore(image,parent.firstChild)找兄弟
+4. 刪除物件 找parent.removeChild(子)
+5.修改
+        (1.) 內容
+        innerHTML
+        innerText==textContent
+        (2.) CSS的屬性
+        某物件.style.color="black";
+        某物件.style.fontSize="24px";
+        (3.)HTML標籤屬性
+        img物件.src(HTML標籤屬性)
+        input物件.value(HTML標籤屬性)
+        id...
+        class<==關鍵字不能直接寫==>classname
+        label.for(標籤屬性)<===改成htmlfor
+        
