@@ -1,0 +1,4 @@
+<img src='https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=280x280&maptype=roadmap&key=AIzaSyDcs9UPDbrYVCwtvYudAYHo0gzn0P1gc-M&markers="高雄市中正四路211號"'/>
+
+
+https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=280x280&maptype=roadmap&key=AIzaSyDcs9UPDbrYVCwtvYudAYHo0gzn0P1gc-M&markers="高雄市中正四路211號"

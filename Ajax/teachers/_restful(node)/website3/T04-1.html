@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest進階應用</title>
+    <link rel="icon" href="./favicon.ico" />
+    <link href="stylesheets/jquery-ui/base/jquery-ui.min.css" rel="stylesheet" />
+    <link href="stylesheets/myStyleSheet.css" rel="stylesheet" />
+
+    <script src="javascripts/jquery-3.6.0.min.js"></script>
+    <script src="javascripts/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#tabs").tabs();
+        });
+    </script>
+</head>
+<body>
+    <div id="tabs">
+        <ul>
+            <li><a href="#p1">透過XMLHttpRequest物件接收XML格式的資料</a></li>
+            <li><a href="#p2">透過XMLHttpRequest物件接收JSON格式的資料</a></li>
+        </ul>
+        <div id="p1">
+            <div class="main-box large-padding">
+                <p>
+                    <a id="a1" href="data/PurchaseOrder.xml" class="a-button">測試 XMLHttpRequest物件接收XML格式的資料...</a>
+                </p>
+                <div class="message-box color-444 height-60percent" id="div1"></div>
+                <script>
+                    $("#a1").click(function () {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("get", $(this).attr("href"), true); //true表示非同步請求。
+                        xhr.onload = function () { //The transaction completes successfully
+                            if (xhr.status === 200) {
+                                var xmlDoc = xhr.responseXML;
+                                var items = $(xmlDoc).find("Item");
+                                //<Item PartNumber="872-AA">
+                                //    <ProductName>Lawnmower</ProductName>
+                                //    <Quantity>1</Quantity>
+                                //    <USPrice>148.95</USPrice>
+                                //    <Comment>Confirm this is electric</Comment>
+                                //</Item>
+                                //<Item PartNumber="926-AA">
+                                //    <ProductName>Baby Monitor</ProductName>
+                                //    <Quantity>2</Quantity>
+                                //    <USPrice>39.98</USPrice>
+                                //    <ShipDate>1999-05-21</ShipDate>
+                                //</Item>
+                                $.each(items, function (index, value) { //此處value為<Item>
+                                    $("#div1").append(`<div>PartNumber: ${$(value).attr("PartNumber")}<div>`);
+                                    $.each($(value).children(), function (i, v) {//此處v為<ProductName>或<Quantity>或<USPrice>或<Comment>
+                                        $("#div1").append(`<div class="color-blue">${v.nodeName}=${$(v).text()}</div>`)
+                                    });
+                                });
+                            } else {
+                                $("#div1").html(`<span class="color-red">來自伺服器的回應:${xhr.statusText}</span>`);
+                            }
+                        };
+                        xhr.send(null);
+
+                        return false;
+                    });
+                </script>
+            </div>
+        </div>
+        <div id="p2">
+            <div class="main-box large-padding left-align">
+                <p>
+                    <a id="a2" href="data/Emp.json" class="a-button">測試 XMLHttpRequest物件接收JSON格式的資料...</a>
+                </p>
+                <div class="message-box color-444 large-padding" id="div2"></div>
+                <script>
+                    $("#a2").click(function () {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("get", $(this).attr("href"), true); //true表示非同步請求。
+                        xhr.onload = function () {  //The transaction completes successfully
+                            if (xhr.status === 200) {
+                                var text = xhr.responseText;
+                                var array = JSON.parse(text);
+                                var s = "";
+                                $.each(array, function (index, value) {
+                                    s += `<div>員工編號: ${value.EmpId} 姓名: ${value.Name} 年齡: ${value.Age}歲<div>`;
+                                });
+                                $("#div2").html(s);
+                            } else {
+                                $("#div2").html(`<span class="color-red">來自伺服器的回應:${xhr.statusText}</span>`);
+                            }
+                        };
+                        xhr.send(null);
+
+                        return false;
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

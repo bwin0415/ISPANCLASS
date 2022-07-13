@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>Hello world</h1>
+    <div id="div1">
+
+    </div>
+    <form id="form1">
+        username<input type="text" name="username" value="Hello Kitty" />
+        <input type="submit" />
+
+    </form>
+    <button type="button" id="btn1">fetch Emp.json</button>
+    <div id="div2">
+
+    </div>
+    <div id="news">
+        <a href="data/today.html">今天頭條</a>
+        <a href="data/yesterday.html">昨天頭條</a>
+        <a href="data/lastweek.html">上週頭條</a>
+        <div>
+
+        </div>
+    </div>
+    <script src="javascripts/jquery-3.6.0.min.js"></script>
+    <script>
+
+        function _sendAjaxRequest(url, username, password) {
+            return new Promise((res, rej) => {
+
+                $.ajax({
+                    method: 'get',
+                    url,
+                    data: { username, password },
+                    dataType: "text",
+                    success: (data) => {
+                        res(data)
+                    },
+                    error: (jqXHR, textStatus, errorThrown) => {
+                        rej(`${jqXHR}---${textStatus}----${errorThrown}`)
+                    }
+                })
+            })
+        }
+        //async function g() {
+        //    /*let response = await _sendAjaxRequest("_AjaxServer02.aspx", 'hello', "kitty");
+        //    $('#div1').append(`<div>${response}</div>`)
+        //    response = await _sendAjaxRequest('data/Emp.json');
+        //    $('#div1').append(`<div>${response}</div>`)*/
+        //    let response = [await _sendAjaxRequest("_AjaxServer02.aspx", 'hello', "kitty"), await _sendAjaxRequest('data/Emp.json')]
+        //    for (let i = 0; i < response.length; i++) {
+        //        $('#div1').append(`<div>${response[i]}</div>`)
+        //    }
+        //    return 100;
+        //}
+        //網頁ready了
+        $(() => {
+            $('#news a').click(function () {
+                $('#news div:first').load($(this).attr('href') + '#newsItem')
+                return false
+            })
+
+            /* g()*/
+
+            (async function () {
+                let response = [await _sendAjaxRequest("_AjaxServer02.aspx", 'hello', "kitty"), await _sendAjaxRequest('data/Emp.json')]
+                for (let i = 0; i < response.length; i++) {
+                    $('#div1').append(`<div>${response[i]}</div>`)
+                }
+
+            })()
+
+
+
+            $('#form1').submit(function (e) {
+                e.preventDefault();
+                fetch('_AjaxServer03.aspx', {
+                    method: 'POST',
+                    body: $(this).serialize(),
+                    headers: { 'content-type': 'application/x-www-form-urlencoded;charset=utf-8' }
+                })
+                    .then((response) => { return response.text() })
+                    .then((text) => { alert(text); })
+            })
+
+
+            $('#btn1').click(() => {
+                $('#div2').html('');
+                fetch("data/Emp.json")
+                    .then((response) => { return response.json() })
+                    .then(function (emps) {
+
+                        emps.forEach((v, i) => {
+                            $("#div2").append(`<div>${v.EmpId} ${v.Name} ${v.Age}歲</div>`)
+                        })
+                    })
+            })
+
+
+
+
+
+        })
+
+    </script>
+</body>
+</html>

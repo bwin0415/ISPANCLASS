@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>使用「Promise」執行非同步操作</title>
+    <link rel="icon" href="./favicon.ico" />
+    <link href="stylesheets/jquery-ui/base/jquery-ui.min.css" rel="stylesheet" />
+    <link href="stylesheets/myStyleSheet.css" rel="stylesheet" />
+    <script src="javascripts/jquery-3.6.0.min.js"></script>
+    <script src="javascripts/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        var jqDiv1, jqDiv2;
+        $(function () {
+            $("#tabs").tabs();
+            jqDiv1 = $("#div1");
+            jqDiv2 = $("#div2");
+        });
+        function getConnection(cb) {
+            setTimeout(function () {
+                var connection = {};
+                jqDiv1.append("<div>1. connection已取得!</div>");
+                cb(connection);
+            }, 1000);
+            jqDiv1.append("<div>1. connection取得中...</div>");
+        }
+        function executeQuery(connection, cb) {
+            setTimeout(function () {
+                var resultSet = '[ { "empid": 1, "name": "小倩" },{ "empid": 2, "name": "采臣" } ]';
+                jqDiv1.append("<div>2. ResultSet已取得!</div>");
+                cb(resultSet);
+            }, 1000);
+            jqDiv1.append("<div>2. ResultSet取得中...</div>");
+        }
+        function processResultSet(resultSet, cb) {
+            setTimeout(function () {
+                var rows = JSON.parse(resultSet);
+                jqDiv1.append("<div>3. resultSet轉換處理已完成!</div>");
+                cb(rows);
+            }, 1000);
+            jqDiv1.append("<div>3. resultSet轉換處理中...</div>");
+        }
+        //--------------------------------------------------------//
+        function getConnection2() {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    var connection = {};
+                    jqDiv2.append("<div>1. connection已取得!</div>");
+                    resolve(connection);
+                }, 1000);
+                jqDiv2.append("<div>1. connection取得中...</div>");
+            });
+        }
+        function executeQuery2(connection) {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    var resultSet = '[ { "empid": 1, "name": "米妮" },{ "empid": 2, "name": "米奇" } ]';
+                    jqDiv2.append("<div>2. ResultSet已取得!</div>");
+                    resolve(resultSet);
+                }, 1000);
+                jqDiv2.append("<div>2. ResultSet取得中...</div>");
+            });
+        }
+        function processResultSet2(resultSet) {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    var rows = JSON.parse(resultSet);
+                    jqDiv2.append("<div>3. resultSet轉換處理已完成!</div>");
+                    resolve(rows);
+                }, 1000);
+                jqDiv2.append("<div>3. resultSet轉換處理中...</div>");
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="tabs">
+        <ul>
+            <li><a href="#p1">比較「回呼函式」vs「Promise」應用於非同步操作的用法</a></li>
+            <li><a href="#p2">完整的「Promise」使用範例</a></li>
+        </ul>
+        <div id="p1">
+            <div style="width:80%; margin:auto;">
+                <div class="main-box size-500x350" style="display:inline-block; width:45%;">
+                    <p>
+                        <a id="a1" href="#" class="a-button">測試「回呼函式」應用於非同步操作...</a>
+                    </p>
+                    <div class="message-box height-60percent" id="div1"></div>
+                    <script>
+                        $("#a1").click(function () {
+                            getConnection(function (conn) {
+                                executeQuery(conn, function (rs) {
+                                    processResultSet(rs, function (rows) {
+                                        rows.forEach(function (value, index) {
+                                            jqDiv1.append(`<div style="color:green;">empid=${value.empid} name=${value.name}</div>`);
+                                        });
+                                    });
+                                });
+                            });
+                            return false;
+                        });
+                    </script>
+                </div>
+                <div class="main-box size-500x350" style="display: inline-block; width: 45%;">
+                    <p>
+                        <a id="a2" href="#" class="a-button">測試「Promise」應用於非同步操作...</a>
+                    </p>
+                    <div class="message-box height-60percent" id="div2"></div>
+                    <script>
+                        $("#a2").click(function () {
+                            getConnection2()
+                                .then(function (conn) {
+                                    return executeQuery2(conn);
+                                })
+                                .then(function (rs) {
+                                    return processResultSet2(rs);
+                                })
+                                .then(function (rows) {
+                                    rows.forEach(function (value, index) {
+                                        jqDiv2.append(`<div style="color:green;">empid=${value.empid} name=${value.name}</div>`);
+                                    });
+                                });
+                            return false;
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div id="p2">
+            <div class="main-box">
+                <p>
+                    <a id="a3" href="#" class="a-button">測試完整的「Promise」使用範例...</a>
+                </p>
+                <div class="message-box height-60percent" id="div3"></div>
+                <script>
+                    function sendAjaxRequest(url, username, password) {
+                        return new Promise(
+                            function (resolve, reject) { //executor
+                                //非同步操作
+                                $.ajax({
+                                    method: 'post',
+                                    url: url,
+                                    data: { username, password },
+                                    success: function (data) {
+                                        resolve(data);
+                                    },
+                                    error: function (jqXHR, textStatus, errorThrown) {
+                                        reject(`${textStatus} - ${errorThrown}`);
+                                    }
+                                });
+                            });
+                    }
+                    //------------------------------------------------------//
+                    $("#a3").click(function () {
+
+                        sendAjaxRequest('_AjaxServer02.aspx', "hello", "kitty")
+                            .then(
+                                function (data) {
+                                    try {
+                                        //解析伺服端回應的JSON字串
+                                        var obj = JSON.parse(data);
+                                        return obj.status;
+                                    }
+                                    catch (e) {
+                                        throw `伺服端回應的JSON字串格式有誤<br/>${e.toString()}`;
+                                    }
+                                },
+                                function (err) {
+                                    $("#div3").append(`<div style="color:red">錯誤狀況1: ${err}</div>`);
+                                }
+                            )
+                            .then(
+                                function (status) {
+                                    if (status == 'pass')
+                                        $("#div3").append(`<div style="color:green">恭喜您！您已通過身分驗證。</div>`);
+                                    else if (status == 'fail')
+                                        $("#div3").append(`<div style="color:blue">很抱歉！您未通過身分驗證。</div>`);
+                                    else
+                                        throw `伺服端回應的status資料有誤(status=${status})`;
+                                }
+                            )
+                            .catch(function (err) {
+                                $("#div3").append(`<div style="color:red">錯誤狀況2: ${err}</div>`);
+                            }); //catch(failureCallback) 是 then(null, failureCallback) 的簡寫
+
+                        return false;
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!ELEMENT emps (emp+)>
+<!ELEMENT emp (empid,firstname,lastname)>
+<!ELEMENT empid (#PCDATA)>
+<!ELEMENT firstname (#PCDATA)>
+<!ELEMENT lastname (#PCDATA)>

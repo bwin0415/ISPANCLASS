@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>
+        hello world
+    </h1>
+    <button>發送Ajax請求</button>
+    <div id="div1"></div>
+    <form id="form1">
+        <p>
+            unsername
+            <input type="text" name="username">
+        </p>
+
+        <p>
+            password
+            <input type="text" name="password">
+        </p>
+
+        <input type="submit" value="以Ajax送出
+               " />
+    </form>
+    <button>以Ajax請求Emp.json</button>
+    <ul id="u1">
+    </ul>
+    <button>以Promise送ajax請求</button>
+
+    <script src="javascripts/jquery-3.6.0.min.js"></script>
+    <script>
+
+        let str = '{"name":"kitty"}';
+        try {
+            let obj = JSON.parse(str);
+            throw new error("例外發生了")
+            alert(obj.name);
+        } catch (e) {
+            alert(e);//類別:訊息
+            alert(e.message);//訊息
+        }
+        
+        //json格式不能註解
+        $(() => {
+            //以promise送ajax請求
+            $('button:eq(2)').click(() => {
+                new Promise((resolve, reject) => {
+                    $.ajax({
+                        method: 'get',
+                        url: '_AjaxServer03.aspx',
+                        data: { username: 'Hello Kitty' },
+                        success: (data) => {
+                            resolve(data);
+                        },
+                        error: (jqXHR, textStatus, errorThrown) => {
+                            reject(`${jqXHR.status}--${textStatus}--${errorThrown}`);
+                        }
+                    })
+                })
+                    .then((data) => {
+                        alert('1' + data);
+                        //return new Promise((res, rej) => {
+                        //    setTimeout(() => {
+                        //        /*res('Times up');//解決*/
+                        //        rej('Overtime')//拒絕
+                        //    }, 1000)
+                        //})
+                        throw "我拋出了一個例外物件"
+                        /*1.return value(100)-->then回傳promise 就被解決了(解決值=100)
+                          2.return undefined-->then回傳promise 就被解決了(解決值=undefined)
+                          3.return a Promise(解決)-->then回傳promise 就被解決了(解決值='Times up')
+                          4.return a Promise(被拒絕)-->then回傳promise 就被拒絕了(拒絕值='Over time')
+                          5.throw exception (捕捉錯誤)-->拋出一個例外物件
+                         */
+
+                    })
+                    //},(errReason) => {
+                    //    alert(errReason);
+                    //})
+                    .then((value) => {
+                        alert('2' + value);
+                    })
+                    .catch((errReason) => {
+                        alert(errReason);
+                    })
+            })
+
+            $("button:eq(1)").click((e) => {
+                let xhr = new XMLHttpRequest();
+                xhr.open('get', 'data/Emp.json', true)
+                xhr.onload = () => {
+                    if (xhr.status == 200) {
+                        let array = JSON.parse(xhr.responseText);
+                        $.each(array, (index, value) => {
+                            $('#u1').append(`<li>${value.EmpId} ${value.Name} ${value.Age}歲</li> `);
+                        })
+                    }
+                    else {
+
+                    }
+                }
+                xhr.send(null);
+            })
+        })
+
+        $('#form1').submit((e) => {
+            e.preventDefault();
+            let xhr = new XMLHttpRequest()
+            xhr.open("post", "_AjaxServer01.aspx", true);
+            xhr.onload = () => {
+                if (xhr.status == 200) {
+                    if (xhr.responseText == 'pass') {
+                        alert('已驗證')
+                    }
+                    else if (xhr.responseText == 'fail') {
+                        alert("驗證失敗")
+                    }
+                }
+                else {
+                    alert(`${xhr.status} ${xhr.statusText}`)
+                }
+
+            }
+            xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=utf8')
+            let formData = $(this).serialize();
+            xhr.send(formData)
+        })
+        $(() => {
+            $('button:first').click(() => {
+                //第二招
+                let xhr = new XMLHttpRequest();
+                xhr.open('get', "data/Emp.json", true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+                        if (xhr.status == 200) {
+                            $('#div1').html(`<div style="color:blue">${xhr.responseText}</div>`);
+                        }
+                        else {
+                            $('#div1').html(`<div style="color:red">${xhr.status} ${xhr.statusText}</div>`);
+                        }
+                    }
+                }
+                xhr.send(null);
+
+
+                //第一招
+                //$.ajax({
+                //    method: 'get',
+                //    url: '_AjaxServer03.aspx', //正確版本
+                //    /*url: '_AjaxServer03xx.aspx',*/ //錯誤版本
+                //    data: { username: '采臣' },
+                //    success: (data) => {
+                //        /*alert(data);*/
+                //        $('#div1').html(data);
+                //        setTimeout(() => {
+                //            $('#div1').html('')
+                //        },3000)
+                //    },
+                //    error: (jqXHR, textStatus, errorThrown) => {
+                //        alert(`${jqXHR.status}--${textStatus}--${errorThrown}`)
+                //    }
+                //});
+            });
+        });
+
+    </script>
+</body>
+</html>

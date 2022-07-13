@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>實務練習–自動完成功能</title>
+    <link rel="icon" href="./favicon.ico" />
+    <link href="stylesheets/jquery-ui/base/jquery-ui.min.css" rel="stylesheet" />
+    <link href="stylesheets/myStyleSheet.css" rel="stylesheet" />
+    <script src="javascripts/jquery-3.6.0.min.js"></script>
+    <script src="javascripts/jquery-ui.min.js"></script>
+    <style>
+        .ui-autocomplete-loading {
+            background: white url("images/ui-anim_basic_16x16.gif") right center no-repeat;
+        }
+
+        .auto-complete-item:hover {
+            background: #007fff;
+            color: #fff;
+        }
+
+        #auto-complete-container {
+            position: absolute;
+            border: 1px solid #aaa;
+            box-sizing: border-box;
+            background: white;
+            cursor: pointer;
+            color: #444;
+            display: none;            
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#tabs").tabs();
+        });
+    </script>
+</head>
+<body>
+    <div id="tabs">
+        <ul>
+            <li><a href="#p1">使用jQuery UI的自動完成功能</a></li>
+            <li><a href="#p2">自行開發自動完成功能</a></li>
+        </ul>
+        <div id="p1">
+            <div class="main-box large-padding left-align">
+                <div id="header">
+                    <div id="logo">
+                        <a href="#">
+                            <img src="images/greefies/logo.gif" />
+                        </a>
+                    </div>
+                </div>
+                <form id="form1" class="main-form">
+                    <div class="form-group">
+                        <label for="username">使用者名稱</label>
+                        <input class="form-control" type="text" name="username"
+                               id="username" placeholder="請輸入使用者名稱" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="送出" /> <div id="msg1" class="message-box inline"></div>
+                    </div>
+                </form>
+                <div id="footer">
+                    <div>
+                        <a href="#">
+                            <img src="images/greefies/footer_logo.gif" />
+                        </a>
+                    </div>
+                </div>
+                <script>
+                    $("#username").autocomplete({
+                        source: "_AjaxServer04-1.aspx"
+                        //當使用者按下按鍵時，jQuery UI會送出具term請求參數的GET請求，如: _AjaxServer13-1.aspx?term=使用者輸入之文字
+                    });
+
+                    $("#form1").submit(function () {
+                        var formData = $(this).serialize(); // new FormData(this)
+                        $.ajax({
+                            method: 'POST',
+                            url: "_AjaxServer04-2.aspx",
+                            data: formData,
+                            success: function (data) {
+                                $("#msg1").html(data);
+                                setTimeout('$("#msg1").html("");', 3000);
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                $("#msg1").html(`<span class="color-red">伺服器回應:${errorThrown}</span>`);
+                                setTimeout('$("#msg1").html("");', 3000);
+                            }
+                        });
+                        return false;
+                    });
+                </script>
+            </div>
+        </div>
+        <div id="p2">
+            <div class="main-box large-padding left-align">
+                <div id="header">
+                    <div id="logo">
+                        <a href="#">
+                            <img src="images/greefies/logo.gif" />
+                        </a>
+                    </div>
+                </div>
+                <form method="post" id="form2" class="main-form"  autocomplete="off">
+                    <div class="form-group">
+                        <label for="username">使用者名稱</label>
+                        <input class="form-control" type="text" name="username"
+                               id="username2" placeholder="請輸入使用者名稱" />
+                    </div>
+                    <div id="auto-complete-container"></div>
+                    <div class="form-group">
+                        <input type="submit" value="送出" /> <div id="msg2" class="message-box inline"></div>
+                    </div>
+                </form>
+                <div id="footer">
+                    <div>
+                        <a href="#">
+                            <img src="images/greefies/footer_logo.gif" />
+                        </a>
+                    </div>
+                </div>
+                <script>
+                    var myInput = $("#username2");
+                    var autoCompleteContainer = $("#auto-complete-container");
+                    autoCompleteContainer.css({ width: myInput.outerWidth(false) });
+
+                    //點擊.auto-complete-item以外的區域->將#auto-complete-container隱藏
+                    $("body").click(function (event) {
+                        //event.target指被點擊處的最內層的元素
+                        if ($(event.target).is(".auto-complete-item") == false)
+                            autoCompleteContainer.hide();
+                    });
+                    //註冊input元素(id=username)的input事件處理器
+                    myInput.on("input", function () {
+                        $.ajax({
+                            method: 'POST',
+                            url: "_AjaxServer04-1.aspx",
+                            data: { "term": $(this).val() },
+                            dataType: 'json',
+                            beforeSend: function () {
+                                myInput.addClass("ui-autocomplete-loading");
+                            },
+                            success: function (data) {//data相當於$.parseJSON(XMLHttpRequest.responseText)所得之字串陣列如:["Margaret", "Michael"]
+                                console.log(data)
+                                $(".auto-complete-item", autoCompleteContainer).remove();
+
+                                $.each(data, function (index, value) {
+                                    var myDiv = $(`<div class="auto-complete-item" style="padding:3px;">${value}</div>`);
+                                    myDiv.click(function () {
+                                        myInput.val($(this).text());
+                                        autoCompleteContainer.hide();
+                                    });
+                                    autoCompleteContainer.append(myDiv);
+                                });
+                                autoCompleteContainer.show();
+                                autoCompleteContainer.position({
+                                    of: myInput, //定位被對準的元素
+                                    my: "left top", //定位時本身元素的 x y 位置
+                                    at: "left bottom" //定位時被對準的元素的 x y 位置
+                                });
+                            },
+                            complete: function () {
+                                myInput.removeClass("ui-autocomplete-loading");
+                            }
+                        });
+                    });
+                    $("#form2").submit(function () {
+                        var formData = $(this).serialize(); // new FormData(this)
+                        $.ajax({
+                            method: 'POST',
+                            url: "_AjaxServer04-2.aspx",
+                            data: formData,
+                            success: function (data) {
+                                $("#msg2").html(data);
+                                setTimeout('$("#msg2").html("");', 3000);
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                $("#msg2").html(`<span class="color-red">伺服器回應:${errorThrown}</span>`);
+                                setTimeout('$("#msg2").html("");', 3000);
+                            }
+                        });
+                        return false;
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
