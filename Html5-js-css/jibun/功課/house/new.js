@@ -44,7 +44,6 @@ function doFirst() {
         context.fillRect(135, 900, 30, 10);
         context.closePath();
         context.beginPath();
-        context.beginPath();
         context.arc(150, 870, 10, 0, 360, false);
         context.fill();
         context.closePath();
@@ -61,6 +60,69 @@ function doFirst() {
             context.fill();
             context.closePath();
         }
+        context.beginPath();
+        context.fillRect(135, 570, 30, 10);
+        context.fillRect(140, 560, 20, 10);
+        context.beginPath();
+        context.moveTo(145, 560);
+        context.lineTo(155, 560);
+        context.lineTo(158, 540);
+        context.lineTo(142, 540);
+        context.fill();
+        context.closePath();
+        context.beginPath();
+        context.moveTo(145, 540);
+        context.lineTo(155, 540);
+        context.lineTo(155, 520);
+        context.lineTo(150, 500);
+        context.lineTo(145, 520);
+        context.fill();
+        context.closePath();
+        context.beginPath();
+        context.lineWidth = 5;
+        context.strokeStyle = 'black';
+
+        //聖家堂
+        context.moveTo(250, 950);
+        context.lineTo(650, 950);
+        context.lineTo(630, 930);
+        context.quadraticCurveTo(635, 700, 630, 600);
+        context.lineTo(620, 550);
+        context.lineTo(610, 600);
+        context.quadraticCurveTo(605, 600, 610, 920);
+        context.lineTo(580, 900);
+        context.quadraticCurveTo(585, 725, 580, 550);
+        context.lineTo(570, 500);
+        context.lineTo(560, 550);
+        context.quadraticCurveTo(548, 725, 550, 870);
+        context.lineTo(515, 850);
+        context.lineTo(515, 750);
+        context.lineTo(450, 700);
+        context.lineTo(385, 750);
+        context.lineTo(385, 850);
+        context.lineTo(350, 870);
+        context.quadraticCurveTo(355, 725, 350, 550);
+        context.lineTo(340, 500);
+        context.lineTo(330, 550);
+        context.quadraticCurveTo(320, 725, 320, 900);
+        context.lineTo(300, 920);
+        context.quadraticCurveTo(300, 725, 300, 600);
+        context.lineTo(285, 550);
+        context.lineTo(275, 600);
+        context.quadraticCurveTo(275, 725, 275, 930);
+        context.closePath();
+
+
+        context.fill();
+        context.fillStyle = 'white';
+        context.beginPath();
+        context.moveTo(274, 948);
+        context.lineTo(300, 925);
+        context.lineTo(300, 948);
+        context.lineTo(274, 948);
+        context.closePath();
+        context.fill();
     }
+
 }
 window.addEventListener('load', doFirst);

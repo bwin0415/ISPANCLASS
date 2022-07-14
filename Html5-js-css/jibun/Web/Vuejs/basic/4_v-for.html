@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="color in colors">
+                {{ color}}
+            </li>
+            <br>
+            <li v-for="info in man">
+                {{ info}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(color,index) in colors">{{index}}:{{color}}</li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                //變數放這
+                message: 'Hello!',
+                colors: ['red', 'green', 'yellow', 'orange', 'blue', 'purple', 'indigo'],
+                man: {
+                    name: 'Peter',
+                    age: 40,
+                    gender: 'male',
+                    favoriateColor: ['black', 'white', 'gray'],
+                    car: {
+                        make: 'BMW',
+                        mode: 'X5',
+                        year: 2020,
+                    },
+                    retired: false,
+                },
+            },
+        });
+/*         for (let i = 0; i < 10; i++)//陣列處理
+                {
+        
+                }
+                for (let key in 陣列或物件) {//處理陣列或物件
+                } */
+    </script>
+</body>
+
+</html>

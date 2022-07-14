@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <img src="https://cdn.max-c.com/wiki/1000000030/a722.png?v=0" alt=""> -->
+        <img v-bind:src="imgURL" v-bind:alt="name">
+        <!-- <img :src="imgURL" :alt="name"> <--縮寫--->
+        <hr>
+        <p v-for="color in colors">
+            <font :color="color">{{color}}</font>
+        </p>
+
+    </div>
+    <script>
+        new Vue({
+            
+            el: '#app',
+            data: {
+                //變數放這
+                message: 'Hello!',
+                colors: ['red', 'green', 'yellow', 'orange', 'blue', 'purple', 'indigo'],
+                imgURL: 'https://cdn.max-c.com/wiki/1000000030/a722.png?v=0',
+                name: '木木梟',
+            },
+            methods: {
+                //大部分函數方法放這裡!
+
+            },
+        });
+
+    </script>
+</body>
+
+</html>

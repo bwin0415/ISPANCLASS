@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .theButton {
+            background-color: dodgerblue;
+            color: azure;
+            border-radius: 3px;
+        }
+
+        .noText {
+            background: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input v-model="message">
+        <!-- <button class=" theButton noText">Click me</button> -->
+        <button :class="btnClass">Click me</button>
+        <!-- 標籤屬性不能重複 -->
+    </div>
+    <script>
+        // 綁定class:
+        // 1.傳回字串
+        // 2.傳回物件
+        // 3.傳回物件(簡易版)
+        new Vue({
+
+            el: '#app',
+            data: {
+                //變數放這
+                message: "",
+
+            },
+            methods: {
+                //大部分函數方法放這裡!
+
+            },
+            computed: {
+                //函數也可以放這裡，但是放在這的函數。不能傳參數，一定要有回傳值。
+                btnClass() {
+                    //1.傳回字串
+                    // if (this.message.length == 0) {
+                    //     return "theButton noText"
+                    // } else {
+                    //     return "theButton"
+
+                    // }
+                      //2.傳回物件
+                    // if (this.message.length == 0) {
+                    //     return {
+                    //         theButton: true,
+                    //         noText: true,
+
+                    //     }
+                    // } else {
+                    //     return {
+                    //         theButton: true,
+                    //         noText: false,
+                    //     }
+
+                    // }
+                    //3.傳回物件(簡易版)
+                    return{
+                        theButton: true,
+                            noText: this.message.length == 0,
+                    }
+                },
+
+            },
+        });
+    </script>
+</body>
+
+</html>
