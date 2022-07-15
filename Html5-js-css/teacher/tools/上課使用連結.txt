@@ -33,3 +33,6 @@ https://www.emailjs.com/
 
 leaflet 地圖套件
 https://leafletjs.com/
+
+let's encrypt
+搜尋免費的 https 服務
