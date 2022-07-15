@@ -7,17 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue</title>
     <script src="../js/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.js"></script>
+    <style>
+        h1 {
+            font-size: 18px;
+        }
+
+        .book {
+            border: 1px solid #ccc;
+            width: 250px;
+            height: 350px;
+            display: inline-block;
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 40px;
+        }
+    </style>
 </head>
 
 <body>
     <div id="app">
-
+        <div v-for="book in books" class="book">
+            <a :href="book.url">
+                <img :src="book.image" alt="">
+            </a>
+            <h1>
+                {{checkWord(book.title)}}
+            </h1>
+            <p>
+                {{book.author}}
+            </p>
+        </div>
     </div>
     <script>
         let vm = new Vue({
             el: '#app',
             data: {
-                books:[],
+                books: [],
             },
             computed: {
 
@@ -26,23 +56,43 @@
 
             },
             methods: {
+                checkWord(theTitle) {
+                    return theTitle.slice(0, 20)
+                }
 
             },
-            mounted: function(){
+            mounted() {
+                // then()的傳回值是Promise物件
                 //JQ
+
+                // $.getJSON('../bookData.json').then(function (res){})
+                // $.getJSON('../bookData.json').then(res => {
+                //     console.log(res);
+                //     this.books = res;
+                // })
+
                 //Axios.js
+                // axios.get('../bookData.json').then(res => {
+                //     console.log(res.data);
+                //     this.books = res.data;
+                // })
+
+                //Fetch API
+                // fetch('../bookData.json').then(res => {
+                //     console.log(res.json())
+                // });
+                fetch('../bookData.json').then(res => res.json()).then(res => this.books = res)
 
             }
         })
 
+        // 1. Javascript:XMLHttpRequest 物件
+        // 2. JQ:$.ajax()
+        // 3. Axios.js
+        // 4. Fetch API
+        // 5. ES6 :Promise 物件 then()
+        // 6. Async, Await
     </script>
 </body>
 
 </html>
-
-// 1. Javascript:XMLHttpRequest 物件
-// 2. JQ:$.ajax() 
-// 3. Axios.js
-// 4. Fetch API
-// 5. ES6 :Promise 物件 then()
-// 6. Async, Await 
