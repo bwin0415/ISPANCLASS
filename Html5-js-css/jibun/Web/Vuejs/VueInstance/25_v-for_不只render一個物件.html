@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 1 -->
+        <!-- <h2>
+            <img src="../../images/foot.gif" alt="">
+            About
+            <img src="../../images/foot.gif" alt="">
+            Products
+            <img src="../../images/foot.gif" alt="">
+            Contact
+            <img src="../../images/foot.gif" alt="">
+            Nothing
+            <img src="../../images/foot.gif" alt="">
+            Something
+        </h2> -->
+        <!-- 2 -->
+        <!-- <h2 v-for="header in headers"><img src="../../images/foot.gif" alt="">{{header}}</h2> -->
+        <!-- 3 -->
+        <template v-for="(header,index) in headers">
+            <h2>
+                <img src="../../images/foot.gif" alt="">{{header}}<span>--{{index}}</span>
+            </h2>
+        </template>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                headers: ["About", "Products", "Contact", "Nothing", "Something"]
+            },
+            computed: {
+
+            },
+            watch: { //偵聽器: 主要用來偵聽data和computed的變化
+
+            },
+            methods: {
+
+            },
+        })
+
+    </script>
+</body>
+
+</html>

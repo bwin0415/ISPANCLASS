@@ -89,7 +89,7 @@ function doFirst() {
         context.quadraticCurveTo(635, 700, 630, 600);
         context.lineTo(620, 550);
         context.lineTo(610, 600);
-        context.quadraticCurveTo(605, 600, 610, 920);
+        context.quadraticCurveTo(608, 750, 608, 920);
         context.lineTo(580, 900);
         context.quadraticCurveTo(585, 725, 580, 550);
         context.lineTo(570, 500);
@@ -116,12 +116,32 @@ function doFirst() {
         context.fill();
         context.fillStyle = 'white';
         context.beginPath();
-        context.moveTo(274, 948);
+        context.moveTo(274, 945);
         context.lineTo(300, 925);
-        context.lineTo(300, 948);
-        context.lineTo(274, 948);
+        context.lineTo(300, 945);
+        context.lineTo(274, 945);
         context.closePath();
         context.fill();
+
+        context.beginPath();
+        context.moveTo(330, 905);
+        context.lineTo(345, 890);
+        context.lineTo(345, 945);
+        context.lineTo(330, 945);
+        context.closePath();
+        context.fill();
+
+        context.beginPath();
+        context.moveTo(375, 945);
+        context.quadraticCurveTo(450, 750, 525, 945);
+        context.closePath();
+        context.fill();
+
+        context.beginPath();
+        context.arc(450, 750, 15, 0, 360, false);
+        context.fill();
+        context.closePath();
+
     }
 
 }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- HTml DOM template -->
+        <input v-model.number="x">+<input v-model.number="y"><span> = {{z}}</span>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+
+
+                x: 0,
+                y: 0,
+
+
+
+            },
+            computed: {
+                z() {
+                    return this.x + this.y
+                },
+            },
+            watch: { //偵聽器: 主要用來偵聽data和computed的變化
+                // x(value) {
+                //     this.z = value + this.y
+                // },
+                // y(value) {
+                //     this.z = value + this.x
+                // },
+
+
+            },
+        })
+
+    </script>
+</body>
+
+</html>
