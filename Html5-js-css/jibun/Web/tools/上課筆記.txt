@@ -58,7 +58,7 @@ HTML自訂屬性  是加-號隔開 data-*
         blur
 
         change
-        input
+        input ---- inputType 為number
 
         select 
 3.事件物件
