@@ -21,10 +21,17 @@
         </ul> 
         -->
 
-        <!-- 陣列 -->
         <button @click="action">Click me</button>
+        <!-- 陣列 -->
         <ul>
             <li v-for="num in numArray">{{num}}</li>
+        </ul> 
+        <p>sum : {{sum}}</p>
+        <hr>
+
+        <!-- 物件 -->
+        <ul>
+            <li v-for="(value,key) in numObject">{{key}}: {{value}}</li>
         </ul> 
     </div>
 
@@ -39,6 +46,7 @@
                     y: 10,
                     z: 15,
                 },
+                sum: 0,
             },
             methods: {
                 action(){
@@ -58,12 +66,45 @@
                     // this.numArray.reverse()
                     // this.numArray.sort()
 
-                    // 傳回值 = filter(function(data){return 符合篩選條件的資料})
+                  // filter
+                    // 傳回值(是陣列) = 陣列.filter(function(data){return 符合篩選條件的資料})
                     // this.numArray = this.numArray.filter(function(data){
                     //     return data % 2 == 0
                     // })
                     // this.numArray = this.numArray.filter(data => data % 2 == 0)
-                    this.numArray = this.numArray.filter(data => data > 5)
+                    // this.numArray = this.numArray.filter(data => data > 5)
+
+                  // map
+                    // 傳回值(是陣列) = 陣列.map(function(data){return 逐個處理完之後的結果})
+                    // this.numArray = this.numArray.map(data => data * 5)
+
+                  // reduce
+                    // 傳回值(不是陣列) = 陣列.reduce(function(accumulator,data){return 逐個處理，每次處理的結果放進累計器中})
+                    // this.sum = this.numArray.reduce((accumulator,data) => accumulator += data)
+
+                  // 修改陣列的內容
+                    // this.numArray[2] = 100   // 不是每次都可以
+                    // this.numArray.splice(2, 1, 100)  // 可以
+
+                    // this.$set(陣列, index, value)
+                    // this.$set(this.numArray, 2, 100)  // 可以
+
+                  // 清空陣列
+                    // this.numArray.length = 0   // 不是每次都可以
+                    // this.numArray.splice(0)  // 可以
+
+                    // this.numArray.slice(index from, index to)  
+                    // this.numArray = this.numArray.slice(3, 6)  
+
+
+                  // 物件
+                    // 增加新成員 key / value
+                    // this.numObject.A = 500   // 不是每次都可以
+                    // this.numObject.x = 100      // 可以修改
+
+                    // this.$set(物件, key, value)
+                    // this.$set(this.numObject, 'x', 100)   // 修改
+                    this.$set(this.numObject, 'A', 500)      // 新增
 
                 },
             },

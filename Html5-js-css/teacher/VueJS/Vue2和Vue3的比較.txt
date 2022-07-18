@@ -35,3 +35,12 @@ template    只能有一個根節點                  不需要有唯一的根�
 vue-router  vue@2 ---> vue-router@3          vue@3 ---> vue-router@4
 vuex        vue@2 ---> vuex@3                vue@3 ---> vuexr@4
 ---------------------------------------------------------------------------
+
+
+1. Vue template
+2. Vue instance
+3. Vue component
+
+let n1 = 5
+let n2 = new Number(5)
+

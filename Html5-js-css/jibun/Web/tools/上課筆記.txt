@@ -115,4 +115,7 @@ Math.random() 介於0含~1不含的數 0~0.999...
         id...
         class<==關鍵字不能直接寫==>classname
         label.for(標籤屬性)<===改成htmlfor
-        
+
+Vue ：
+parent 自訂屬性名稱 props[""]
+child :  自訂事件名稱 $emit('',傳遞資料)

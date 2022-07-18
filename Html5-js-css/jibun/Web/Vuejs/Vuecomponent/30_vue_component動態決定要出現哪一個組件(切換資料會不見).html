@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="content='name'">Name</button>
+        <button @click="content='date'">Date</button>
+        <button @click="content='lessons'">Lessons</button>
+        <button @click="content='apply'">Apply</button>
+        <button @click="content='nothing'">Do Nothing</button>
+        <!-- 動態決定要出現哪一個組件? 通過component 元素 ,去指定屬性 is  -->
+        <component :is="content">
+        </component>
+    </div>
+
+    <script>
+        //global component
+        // Vue.component('組件名稱',{
+        // ......
+        // template: "定義視覺元件", //實際上會出現的標籤
+        //
+        // })
+        Vue.component("name", {
+            // 為甚麼組件的 data 必須是 function? => 因為  vue 組件可以重複使用，如果 counter 組件有好幾個，他們應該各自運作，所以各個組件呼叫 data 的時候，會臨時建立物件並 return 回去。
+
+            template: `
+            <p>
+                Your name : <input type="text">
+            </p>
+            `,
+        })
+        Vue.component("date", {
+
+            template: `
+            <p>
+                <input type="checkbox"> Morning
+                <input type="checkbox"> Afternoon
+                <input type="checkbox"> Morning
+            </p>
+            `,
+        })
+        Vue.component("lessons", {
+
+            template: `
+            <p>
+                <input type="checkbox"> HTML <br>
+                <input type="checkbox"> CSS <br>
+                <input type="checkbox"> Javascript <br>
+                <input type="checkbox"> JQuery <br>
+                <input type="checkbox"> HTML5 <br>
+                <input type="checkbox"> VueJS
+                
+            </p>
+            `,
+        })
+        Vue.component("apply", {
+
+            template: `
+            <p>
+                Your Choose Class:<textarea></textarea>
+            </p>
+            `,
+        })
+        Vue.component("nothing", {
+
+            template: `
+            <p>
+                Your Choose Class:<textarea></textarea>
+            </p>
+            `,
+        })
+
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                content: "name",
+            },
+            computed: {
+
+            },
+            watch: { //偵聽器: 主要用來偵聽data和computed的變化
+
+            },
+            methods: {
+
+            },
+            components: {
+
+            },
+            template: ``,
+
+
+
+        })
+
+
+    </script>
+</body>
+
+</html>

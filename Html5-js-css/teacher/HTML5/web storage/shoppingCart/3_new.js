@@ -1,5 +1,8 @@
 let storage = localStorage;
 function doFirst(){
+    if(storage['addItemList'] == null){
+        storage['addItemList'] = '';        // storage.setItem('addItemList','')
+    }
 
     // 幫每個 Add Cart 建立事件聆聽功能
     let list = document.querySelectorAll('.addButton');  // list 是陣列
@@ -15,7 +18,6 @@ function addItem(itemId, itemValue){
     // alert(`${itemId}: ${itemValue}`)
     let image = document.createElement('img')
     image.src = 'imgs/' + itemValue.split('|')[1]
-
     let title = document.createElement('span')
     title.innerText = itemValue.split('|')[0]
 
@@ -34,6 +36,30 @@ function addItem(itemId, itemValue){
     newItem.appendChild(image)
     newItem.appendChild(title)
     newItem.appendChild(price)
+
+    // 存入 storage
+    if(storage[itemId]){
+        alert('You have checked.')
+    }else{
+        storage['addItemList'] += `${itemId}, `
+        storage.setItem(itemId, itemValue)
+    }
+
+    // 計算購買數量和小計
+    let itemString = storage['addItemList'];    // let itemString = storage.getItem('addItemList')
+    let items = itemString.substr(0, itemString.length - 2).split(`, `)
+    console.log(items)  // ['A1001', 'A1005', 'A1006', 'A1002']
+
+    subtotal = 0
+    for(let i = 0; i < items.length; i++){
+        let itemInfo = storage.getItem(items[i])
+        let itemPrice = parseInt(itemInfo.split('|')[2])
+        
+        subtotal += itemPrice
+    }
+    
+    document.getElementById('itemCount').innerText = items.length
+    document.getElementById('subtotal').innerText = subtotal
 }
 window.addEventListener('load', doFirst);
 
