@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        ol li {
+            font: 14px Tahoma;
+            background: #abc;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        ol li:hover {
+            background: #cba;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <my-button @click="clicked"></my-button> -->
+        <my-button @click.native="clicked"></my-button>
+    </div>
+
+    <script>
+        // global component
+        Vue.component('my-button', {
+            template:
+                `
+                <button>Click me!</button>,
+                `
+            ,
+            methods: {
+
+
+            },
+
+        })
+        let vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                clicked() {
+                    alert('Does it make sense?')
+                },
+            }
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>

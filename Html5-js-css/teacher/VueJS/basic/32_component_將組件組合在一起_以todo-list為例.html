@@ -11,14 +11,12 @@
             margin: 5px;
             padding: 5px;
         }
-
         ol li:hover{
             background: #cba;
             cursor: pointer;
         }
     </style>
 </head>
-
 <body>
     <div id="app"> <!-- HTML DOM template-->
         <todo-list></todo-list>
@@ -66,16 +64,15 @@
                     this.tasks.splice(index,1)
                 },
             },        
-            template: 
-            `
+            template: `
                 <div>
                     <todo-input @abc="addTask"></todo-input>
 
                     <ol>
                         <!--<todo-item v-for="task in tasks" v-bind:xyz="task"></todo-item>-->
                         <todo-item v-for="(task,index) in tasks" 
-                            v-bind:xyz="task"
-                            @click.native="removeTask(index)" />
+                                   v-bind:xyz="task"
+                                   @click.native="removeTask(index)" />
                     </ol>
                 </div>
             `,

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <!-- 沒有直接關係的組件如何溝通? -->
+    <!-- 1. 將會影響彼此的值, 放在彼此的parent component ==> 本程式  -->
+    <!-- 2. event bus--  ==> 42.  -->
+    <!-- 3. vuex--  ==> 43.  -->
+    <div id="app">
+        <my-button @click.native="count+=1"></my-button>
+        <my-counter :the-count="count"></my-counter>
+    </div>
+
+    <script>
+        // global component
+        Vue.component('my-button', {
+            template:
+                `
+                <button>Click me!</button>
+                `
+            ,
+        })
+        Vue.component('my-counter', {
+            props: ['the-count'],
+            template:
+                `
+                <h2>{{theCount}}</h2>
+                `
+            ,
+        })
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                count: 0,
+            },
+            methods: {
+            }
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>
