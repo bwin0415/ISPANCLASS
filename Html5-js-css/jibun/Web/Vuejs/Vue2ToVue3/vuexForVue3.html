@@ -10,52 +10,39 @@
 
     <body>
         <div id="app">
-            <button @click="addCount">Add</button>
             <h2>{{count}}</h2>
+            <button @click="addCount">Add</button>
         </div>
 
         <script>
+            const { createStore } = Vuex;
+            const { computed } = Vue;
             const store = new Vuex.Store({
-                state: { //類似data
-                    count: 0,
-                    x: 100,
-                    y: true,
-                    z: new Date(),
+                state() { //類似data()
+                    return {
 
+                        count: 0,
+                    }
                 },
                 mutations: {     //類似methods
                     addStoreCount(state) {
                         state.count += 1
                     }
                 },
-                getters: {   //類似computed
-
-                },
-                actions: {},
             });
+            const { ref } = Vue
+            const App = {
+                setup() {
+                    const count = computed(() => store.state.count)
+                    const addCount = () => store.commit("addStoreCount")
 
-            let vm = new Vue({
-                store,// store: store,
-                el: '#app',
-                data:
-                {
-                    // count:0,
-                },
-                methods: {
-                    // addCount(){
-                    //     this.count+=1
-                    // },
-                    addCount() {
-                        this.$store.commit('addStoreCount')
-                    },
-
-                },
-                computed: {
-                    count() {
-                        return this.$store.state.count
+                    return {
+                        count, addCount,
                     }
-                },
-            })
+                }
+            }
+
+            Vue.createApp(App).use(Vuex).mount('#app')
 
 
 
