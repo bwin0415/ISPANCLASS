@@ -14,7 +14,14 @@
 
     <script>
         const store = new Vuex.Store({
-
+            state: {
+                count: 0,
+            },
+            mutations: {
+                addStoreCount(state){
+                    state.count += 1
+                },
+            },
         })
 
         new Vue({
@@ -22,6 +29,17 @@
             store,
 
             el: '#app',
+            data: {},
+            methods: {
+                addCount(){
+                    this.$store.commit('addStoreCount')
+                },
+            },
+            computed: {
+                count(){
+                    return this.$store.state.count
+                },
+            },
         })
     </script>
 </body>
