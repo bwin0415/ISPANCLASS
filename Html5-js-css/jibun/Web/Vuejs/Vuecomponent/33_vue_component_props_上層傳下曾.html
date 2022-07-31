@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        ol li {
+            font: 14px Tahoma;
+            background: #abc;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        ol li:hover {
+            background: #cba;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 1 -->
+        <!-- <my-component message="Hello" text="VueJS"></my-component>-->
+        <!-- 2 -->
+        <my-component the-message="Hello" the-text="VueJS"></my-component>
+    </div>
+
+    <script>
+        // global component
+        Vue.component('my-component', {
+            // 1
+            // props:
+            //     [
+            //         "message", 'text'
+            //     ],
+            // template: `<h2>{{message}} {{text}}!</h2>`,
+            // 2 複合字 使用上template{{aaaBbb}}必須用駝峰式命名方式
+            props:
+                [
+                    "the-message", 'the-text'
+                ],
+            template: `<h2>{{theMessage}} {{theText}}!</h2>`,
+        })
+        let vm = new Vue({
+            el: '#app',
+        })
+
+
+    </script>
+</body>
+
+</html>

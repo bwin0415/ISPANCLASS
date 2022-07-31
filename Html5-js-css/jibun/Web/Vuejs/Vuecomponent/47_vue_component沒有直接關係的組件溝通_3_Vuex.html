@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue</title>
+        <script src="https://unpkg.com/vue@2"></script>
+        <script src="https://unpkg.com/vuex@3"></script>
+        <style>
+        </style>
+    </head>
+
+    <body>
+        <!-- 沒有直接關係的組件如何溝通? -->
+        <!-- 1. 將會影響彼此的值, 放在彼此的parent component ==> 41.  -->
+        <!-- 
+        2. event bus--  ==>  42.
+        透過共同的event bus:
+        ◎ 一個組件發出自訂事件:bus:$emit('自訂事件')
+        ◎ 另一個組件聆聽事件:bus:$on('自訂事件',()=>{})
+    -->
+        <!-- 3. vuex--  ==> 本程式  -->
+        <div id="app">
+            <button @click="addCount">Add</button>
+            <h2>{{count}}</h2>
+        </div>
+
+        <script>
+            const store = new Vuex.Store({
+                state: { //類似data
+                    count: 0,
+                    x: 100,
+                    y: true,
+                    z: new Date(),
+
+                },
+                mutations: {     //類似methods
+                    addStoreCount(state) {
+                        state.count += 1
+                    }
+                },
+                getters: {   //類似computed
+
+                },
+                actions: {},
+            });
+
+            let vm = new Vue({
+                store,// store: store,
+                el: '#app',
+                data:
+                {
+                    // count:0,
+                },
+                methods: {
+                    // addCount(){
+                    //     this.count+=1
+                    // },
+                    addCount() {
+                        this.$store.commit('addStoreCount')
+                    },
+
+                },
+                computed: {
+                    count() { 
+                        return this.$store.state.count
+                    }
+                },
+            })
+
+
+
+        </script>
+
+    </body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 1  -->
+        <!-- <button @click="count+=1">add</button>
+    <h2>
+        {{count}}
+    </h2> -->
+        <counter></counter>
+        <counter></counter>
+        <counter></counter>
+        <counter></counter>
+        <counter></counter>
+    </div>
+
+    <script>
+        //global component
+        // Vue.component('組件名稱',{
+        // ......
+        // template: "定義視覺元件", //實際上會出現的標籤
+        //
+        // })
+        Vue.component("counter", {
+            // 為甚麼組件的 data 必須是 function? => 因為  vue 組件可以重複使用，如果 counter 組件有好幾個，他們應該各自運作，所以各個組件呼叫 data 的時候，會臨時建立物件並 return 回去。
+
+            data() {
+                return {
+                    count: 0,
+                }
+            },
+            template: `
+            <div>
+                <button @click="count+=1"> Add </button>
+                <h2> {{count}} </h2>
+            </div> 
+            `,
+        })
+
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                count: 0,
+            },
+            computed: {
+
+            },
+            watch: { //偵聽器: 主要用來偵聽data和computed的變化
+
+            },
+            methods: {
+
+            },
+            components: {
+
+            },
+            template: ``,
+
+
+
+        })
+        new Vue({
+            el: '#app2',
+        })
+
+
+    </script>
+</body>
+
+</html>

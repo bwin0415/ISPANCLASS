@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 陣列 -->
+        <!-- <ul>
+    <li v-for="(num,index) in numArr ">{{num}}:index{{index}}
+    </li>
+</ul> -->
+        <!-- 物件 -->
+        <!-- <ul>
+            <li v-for="(value,key) in numObj ">{{key}}:{{value}}</li>
+        </ul> -->
+        <!-- 陣列 -->
+        <button @click='action'>Click Me</button>
+        <ul>
+            <li v-for="num in numArr">{{num}}
+            </li>
+        </ul>
+        <p>sum = {{sum}}</p>
+        <!-- 物件 -->
+        <ul>
+            <li v-for="(value,key) in numObj ">{{key}}:{{value}}</li>
+        </ul>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                numArr: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                numObj: {
+                    x: 5,
+                    y: 10,
+                    z: 15,
+                },
+                sum: 0,
+
+            },
+            computed: {
+
+            },
+            watch: { //偵聽器: 主要用來偵聽data和computed的變化
+                // x(value) {
+                //     this.z = value + this.y
+                // },
+                // y(value) {
+                //     this.z = value + this.x
+                // },
+
+            },
+            methods: {
+                action() {
+                    //新增刪除在前端
+                    // this.numArr.unshift(this.numArr.length + 1);
+                    // this.numArr.shift();
+
+                    //新增刪除在後端
+                    // this.numArr.push(this.numArr.length + 1);
+                    // this.numArr.pop();
+
+                    //新增刪除在後端
+                    // this.numArr.splice(5);
+                    // this.numArr.splice(5,1);
+                    // this.numArr.splice(5,0,100,200,300);
+                    // this.numArr.reverse();
+                    // this.numArr.sort();
+
+                    // 傳回值 = filter(function(data){return 符合篩選條件的資料})
+                    // this.numArr=this.numArr.filter(function(data) {
+                    //     return data%2==0;
+                    // })
+                    // this.numArr = this.numArr.filter(data => data % 2 == 0);
+                    // this.numArr = this.numArr.filter(data => data > 5);
+
+                    // - map(function(data){return 逐個處理完之後的結果})
+                    // this.numArr = this.numArr.map(data => data * 5);
+
+
+                    // - reduce(function(accumulator,data){return 逐個處理，每次處理的結果放進累計器中})
+                    // this.sum = this.numArr.reduce((accumulator, data) => accumulator += data);
+
+                    //修改陣列內容
+                    // this.numArr[2]=100; //不是每次都可以
+                    // this.numArr.splice(2, 1, 100) //可以
+
+                    // this.$set(陣列,index,value);
+                    // this.$set(this.numArr,2,100);//可以
+
+                    //清空陣列
+                    // this.numArr.length =0  //不是每次都可以
+                    // this.numArr.splice(0) //可以
+
+                    // this.numArr.slice(index from,index to) 
+                    // this.numArr= this.numArr.slice(3,6); `
+
+                    //物件
+                    //增加新成員key value
+                    // this.numObj.A = 500 //不是每次都可以
+                    // this.numObj.x = 100 //可以修改
+
+                    // this.$set(物件,key,value);
+                    // this.$set(this.numObj,"x",100);//修改
+                    this.$set(this.numObj,"A",500);//修改
+//總結 set 可以針對物件或陣列新增或修改
+                },
+            },
+        })
+
+    </script>
+</body>
+
+</html>

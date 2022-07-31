@@ -33,3 +33,14 @@ https://www.emailjs.com/
 
 leaflet 地圖套件
 https://leafletjs.com/
+
+let's encrypt
+搜尋免費的 https 服務
+
+公共運輸整合資訊流通服務平台
+https://ptx.transportdata.tw/PTX/
+
+JSON viewer
+https://jsonformatter.org/json-viewer
+
+中央氣象局氣象資料開放平臺

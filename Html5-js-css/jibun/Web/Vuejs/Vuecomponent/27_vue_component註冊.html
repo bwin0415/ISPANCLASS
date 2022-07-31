@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.js"></script>
+    <style>
+        h1 {
+            font-size: 18px;
+        }
+
+        .book {
+            border: 1px solid #ccc;
+            width: 250px;
+            height: 350px;
+            display: inline-block;
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <my-component></my-component> <!-- kebab-case -->
+        <my-component></my-component>
+    </div>
+    <div id="app2">
+
+    </div>
+    <script>
+        //global component
+        // Vue.component('組件名稱',{
+        // ......
+        // template: "定義視覺元件", //實際上會出現的標籤
+        //
+        // })
+        Vue.component("my-component", {
+            template: "<h2 style='color : maroon;'>My Component</h2>",
+        })
+        let vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            computed: {
+
+            },
+            watch: { //偵聽器: 主要用來偵聽data和computed的變化
+
+            },
+            methods: {
+
+            },
+            components: {
+                // // local component  
+                // "my-component": {//kebab-case 1.
+                //     template: '<h2 style="color:red;">My Component</h2>',
+                // },
+                // myComponent: {//camelCase 2.
+                //     template: '<h2 style="color:green;">My Component</h2>',
+                // },
+                // MyComponent: {//PascalCase 3.
+                //     template: '<h2 style="color:blue;">My Component</h2>',
+                // },
+            },
+
+        })
+        new Vue({
+            el: '#app2',
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        ol li {
+            font: 14px Tahoma;
+            background: #abc;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        ol li:hover {
+            background: #cba;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 1. -->
+        <!-- <my-button></my-button> -->
+        <!-- 2. -->
+        <my-button @my-emit="myClick"></my-button>
+    </div>
+
+    <script>
+        // global component
+        Vue.component('my-button', {
+
+            template:
+                `
+                    <button @click="clicked">Click me!</button>
+                `,
+            methods: {
+                clicked() {
+                    //1
+                    // alert('Hey');
+                    //2.沒有傳參數
+                    // this.$emit('my-emit'); //發出自訂事件，但沒有傳參數
+                    //3.有傳一個參數
+                    // this.$emit('my-emit', 100); //發出自訂事件,傳一個值
+                    //4.有傳多個參數
+                    this.$emit('my-emit', 100,200,300); //發出自訂事件,傳多個值
+
+                }
+            },
+
+        })
+        let vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {  
+//                 myClick(){
+// alert('Hi,paren')
+//                 }
+
+// myClick(x){
+// alert(`Hi,parent Give me ${x} dollars.`)
+//                 }
+//             }
+//         })
+
+myClick(x){
+alert(`Hi,parent Give me ${x},${y},${z} dollars.`)
+                }
+            }
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>

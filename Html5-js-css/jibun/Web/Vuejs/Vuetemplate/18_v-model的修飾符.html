@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- v-model modifier(修飾符)
+        lazy:trigger when onblur(發生change事件)
+        number：parseInt() 字串轉整數
+        trim：trim() 刪前後空白
+    -->
+    <div id="app">
+        <!-- HTML DOM template-->
+        Message:<input v-model="message">
+        <h2>{{message}}</h2>
+        Message(lazy):<input v-model.lazy="message">
+        <h2>{{message}}</h2>
+
+        Numer:<input v-model.number="num">
+        <h2>{{num}}</h2>
+        Name:<input v-model.trim="name">
+        <h2>/{{name}}/</h2>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: '',
+                num: 0,
+                name: '',
+            },
+            methods: {  // 函數『大部分』放這裡!
+            },
+            computed: { // 函數也可以放這裡，但是放在這裡的函數，不能傳參數，一定要有傳回值(return)
+
+            },
+        })
+    </script>
+</body>
+
+</html>
