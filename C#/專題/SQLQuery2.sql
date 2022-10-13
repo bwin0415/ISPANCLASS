@@ -80,21 +80,21 @@ create table product
 go
 
 insert into product Values
-('JohnieWalkerBlackLabelBlendedScotchWhisky(SherryEdition)','酒',640,84,0,default,default,default),
-('Monkey Shoulder Blended Malt Whisky','酒',950,24,0,default,default,default),
-('Johnnie Walker Green Label 15 Year Old Malt Scotch Whisky','酒',950,36,0,default,default,default),
-('Johnnie Walker Blue Label Cask Edition Blended','酒',6300,12,0,default,default,default),
-('Royal Salute 21y','酒',2340,32,0,default,default,default),
-('Glenfiddich 15 Year Old Distillery Edition Speyside','酒',1400,12,12,default,default,default),
-('Singleton 12 Years Old Sherry Single Malt Scotch Whisky','酒',860,72,24,default,default,default),
-('金門高粱12年玉璽酒-虎年','酒',16800,16,16,default,default,default),
-('金門高粱12年玉璽酒-猴年','酒',16800,16,16,default,default,default),
-('金門高粱8年玉璽酒-機年','酒',12800,32,8,default,default,default),
-('Dunhill','菸',650,150,50,default,default,default),
-('峰','菸',900,150,150,default,default,default),
-('七星','菸',650,500,150,default,default,default),
-('大衛','菸',650,500,150,default,default,default),
-('尊爵','菸',420,300,100,DEFAULT,DEFAULT,DEFAULT)
+(N'JohnieWalkerBlackLabelBlendedScotchWhisky(SherryEdition)',N'酒',640,84,0,default,default,default),
+(N'Monkey Shoulder Blended Malt Whisky',N'酒',950,24,0,default,default,default),
+(N'Johnnie Walker Green Label 15 Year Old Malt Scotch Whisky',N'酒',950,36,0,default,default,default),
+(N'Johnnie Walker Blue Label Cask Edition Blended',N'酒',6300,12,0,default,default,default),
+(N'Royal Salute 21y',N'酒',2340,32,0,default,default,default),
+(N'Glenfiddich 15 Year Old Distillery Edition Speyside',N'酒',1400,12,12,default,default,default),
+(N'Singleton 12 Years Old Sherry Single Malt Scotch Whisky',N'酒',860,72,24,default,default,default),
+(N'金門高粱12年玉璽酒-虎年',N'酒',16800,16,16,default,default,default),
+(N'金門高粱12年玉璽酒-猴年',N'酒',16800,16,16,default,default,default),
+(N'金門高粱8年玉璽酒-雞年',N'酒',12800,32,8,default,default,default),
+(N'Dunhill',N'菸',650,150,50,default,default,default),
+(N'峰',N'菸',900,150,150,default,default,default),
+(N'七星',N'菸',650,500,150,default,default,default),
+(N'大衛',N'菸',650,500,150,default,default,default),
+(N'尊爵',N'菸',420,300,100,DEFAULT,DEFAULT,DEFAULT)
 go
 
 select * from product
